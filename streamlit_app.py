@@ -10,6 +10,7 @@ import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.data.option_loader import get_expirations, get_option_chain, get_stock_info
 from src.ui.filters_sidebar import render_sidebar_filters
+from src.insights.llm_interpreter import get_llm_insight
 
 st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
 st.title("Market Sentiment Explorer")
@@ -84,6 +85,16 @@ if ticker:
         else:
             st.warning("No CALL options available.")
 
+        # Show AI insights if user clicks a prompt button
+        with st.expander("🤖 AI Insights"):
+            if st.button("🧠 Analyze CALL Sentiment (AI)", key="ai_summary_CALL"):
+                question = "Summarize trader sentiment and IV skew from this option chain."
+                summary, loops_used = get_llm_insight(ticker, selected_expiration, filtered_calls, filtered_calls, question)
+
+                st.markdown(f"✅ Completed in {loops_used} LLM interaction{'s' if loops_used > 1 else ''}")
+                st.markdown("#### AI Insight:")
+                st.markdown(summary)
+
     with tab2:
         if not puts_df.empty:
             filters = render_sidebar_filters("PUT", puts_df)
@@ -107,3 +118,13 @@ if ticker:
             st.dataframe(filtered_puts, use_container_width=True)
         else:
             st.warning("No PUT options available.")
+
+        # Show AI insights if user clicks a prompt button
+        with st.expander("🤖 AI Insights"):
+            if st.button("🧠 Analyze PUT Sentiment (AI)", key="ai_summary_PUT"):
+                question = "Summarize trader sentiment and IV skew from this option chain."
+                summary, loops_used = get_llm_insight(ticker, selected_expiration, filtered_calls, filtered_puts, question)
+
+                st.markdown(f"✅ Completed in {loops_used} LLM interaction{'s' if loops_used > 1 else ''}")
+                st.markdown("#### AI Insight:")
+                st.markdown(summary)

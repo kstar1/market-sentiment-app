@@ -4,74 +4,111 @@
   Local URL: http://localhost:8501
   Network URL: http://10.66.195.47:8501
 
-2025-04-23 16:53:32.216 Uncaught app exception
+2025-04-24 13:54:14.352 Uncaught app exception
 Traceback (most recent call last):
   File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
     result = func()
              ^^^^^^
   File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
     exec(code, module.__dict__)
-  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 49, in <module>
-    filters = render_sidebar_filters("PUT", puts_df)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/kshitijdutt/market-sentiment-app/src/ui/filters_sidebar.py", line 22, in render_sidebar_filters
-    selected_strike = st.sidebar.slider(
-                      ^^^^^^^^^^^^^^^^^^
-  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
-    result = non_optional_func(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/slider.py", line 340, in slider
-    return self._slider(
-           ^^^^^^^^^^^^^
-  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/slider.py", line 666, in _slider
-    widget_state = register_widget(
-                   ^^^^^^^^^^^^^^^^
-  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/widgets.py", line 169, in register_widget
-    return register_widget_from_metadata(metadata, ctx, widget_func_name, element_type)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/widgets.py", line 214, in register_widget_from_metadata
-    raise DuplicateWidgetID(
-streamlit.errors.DuplicateWidgetID: There are multiple identical `st.slider` widgets with the
-same generated key.
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 90, in <module>
+    if st.button("🧠 Interpret Option Chain Sentiment", key=f"ai_summary_{option_type}"):
+                                                                          ^^^^^^^^^^^
+NameError: name 'option_type' is not defined
+2025-04-24 13:56:08.760 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 122, in <module>
+    if st.button("🧠 Interpret Option Chain Sentiment", key=f"ai_summary_{option_type}"):
+                                                                          ^^^^^^^^^^^
+NameError: name 'option_type' is not defined
+2025-04-24 13:57:23.424 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 92, in <module>
+    summary = get_llm_insight(ticker, selected_expiration, filtered_calls, filtered_calls, question)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py", line 76, in get_llm_insight
+    return ask_openai(messages)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py", line 65, in ask_openai
+    response = openai.ChatCompletion.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/openai/lib/_old_api.py", line 39, in __call__
+    raise APIRemovedInV1(symbol=self._symbol)
+openai.lib._old_api.APIRemovedInV1: 
 
-When a widget is created, it's assigned an internal key based on
-its structure. Multiple widgets with an identical structure will
-result in the same internal key, which causes this error.
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
 
-To fix this error, please pass a unique `key` argument to
-`st.slider`.
-2025-04-23 17:15:23.631 Uncaught app exception
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-04-24 13:57:53.787 Uncaught app exception
 Traceback (most recent call last):
   File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
     result = func()
              ^^^^^^
   File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
     exec(code, module.__dict__)
-  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 12, in <module>
-    from src.ui.filters_sidebar import render_sidebar_filters
-  File "/Users/kshitijdutt/market-sentiment-app/src/ui/filters_sidebar.py", line 20
-    st.sidebar.markdown("#### Price Filters")
-    ^^
-IndentationError: expected an indented block after 'with' statement on line 17
-2025-04-23 17:28:02.927 Uncaught app exception
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 92, in <module>
+    summary = get_llm_insight(ticker, selected_expiration, filtered_calls, filtered_calls, question)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py", line 76, in get_llm_insight
+    return ask_openai(messages)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py", line 65, in ask_openai
+    response = openai.ChatCompletion.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/openai/lib/_old_api.py", line 39, in __call__
+    raise APIRemovedInV1(symbol=self._symbol)
+openai.lib._old_api.APIRemovedInV1: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-04-24 13:58:49.447 Uncaught app exception
 Traceback (most recent call last):
   File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
     result = func()
              ^^^^^^
   File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
     exec(code, module.__dict__)
-  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 33, in <module>
-    col1.metric("Current Price", f"${stock_df['current_price']}")
-                                     ^^^^^^^^
-NameError: name 'stock_df' is not defined
-2025-04-23 17:28:58.714 Uncaught app exception
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 92, in <module>
+    summary = get_llm_insight(ticker, selected_expiration, filtered_calls, filtered_calls, question)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py", line 76, in get_llm_insight
+    return ask_openai(messages)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py", line 65, in ask_openai
+    response = client.chat.completions.create(
+               ^^^^^^
+NameError: name 'client' is not defined
+2025-04-24 13:59:05.127 Uncaught app exception
 Traceback (most recent call last):
   File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
     result = func()
              ^^^^^^
   File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
     exec(code, module.__dict__)
-  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 33, in <module>
-    col1.metric("Current Price", f"${stock_df['current_price']}")
-                                     ^^^^^^^^
-NameError: name 'stock_df' is not defined
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 13, in <module>
+    from src.insights.llm_interpreter import get_llm_insight
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py", line 65, in <module>
+    client = OpenAI()
+             ^^^^^^
+NameError: name 'OpenAI' is not defined. Did you mean: 'openai'?
