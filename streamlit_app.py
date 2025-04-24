@@ -9,6 +9,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.data.option_loader import get_expirations, get_option_chain, get_stock_info
 from src.ui.filters_sidebar import render_sidebar_filters
 from src.insights.llm_interpreter import get_llm_insight
+from src.ui.summary_card import render_llm_summary_card
+from src.ui.ticker_details import render_ticker_details
 
 st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
 st.title("Market Sentiment Explorer")
@@ -54,41 +56,8 @@ if ticker:
 
     # --- EXPANDED DETAILS ---
     with st.expander("📊 More Ticker Details"):
+        render_ticker_details(stock_df["full_info"])
 
-        def display_fields(title, fields):
-            st.markdown(f"### {title}")
-            for label, value in fields:
-                st.markdown(f"- {label}: {value}")
-            st.markdown("")
-
-        info = stock_df["full_info"]
-
-        # Profile
-        profile = [
-            ("**Long Name**", info.get("longName", "N/A")),
-            ("**Sector**", info.get("sector", "N/A")),
-            ("**Industry**", info.get("industry", "N/A")),
-        ]
-
-        # Valuation
-        valuation = [
-            ("**Market Cap**", f"${info.get('marketCap'):,}" if info.get("marketCap") else "N/A"),
-            ("**PE (Trailing)**", f"{info.get('trailingPE'):.2f}" if info.get("trailingPE") else "N/A"),
-            ("**PE (Forward)**", f"{info.get('forwardPE'):.2f}" if info.get("forwardPE") else "N/A"),
-            ("**Dividend Yield**", f"{info.get('dividendYield'):.2%}" if info.get("dividendYield") else "N/A"),
-        ]
-
-        # Performance
-        performance = [
-            ("**EPS (Trailing 12M)**", f"${info.get('trailingEps'):.2f}" if info.get("trailingEps") else "N/A"),
-            ("**Revenue Growth (YoY)**", f"{info.get('revenueGrowth'):.2%}" if info.get("revenueGrowth") else "N/A"),
-            ("**Earnings Date**", str(info.get("earningsDate")) if info.get("earningsDate") else "N/A"),
-            ("**Filings**", f"[SEC Filings]({info.get('secFilings', '#')})" if info.get("secFilings") else "N/A"),
-        ]
-
-        display_fields("🔍 Profile", profile)
-        display_fields("💸 Valuation", valuation)
-        display_fields("📈 Performance", performance)
 
     # Reset Filters
     if st.sidebar.button("🔄 Reset Filters"):
@@ -121,14 +90,21 @@ if ticker:
     # --- AI INSIGHTS BLOCK (requires both filtered sets) ---
     if not filtered_calls.empty and not filtered_puts.empty:
         with st.expander("🤖 AI Insights"):
-            if st.button("🧠 Summarize Market Sentiment with AI", key="ai_summary_both"):
+            if st.button("Summarize Market Sentiment with AI", key="ai_summary_both"):
                 question = "Summarize trader sentiment and IV skew from this option chain."
                 summary, loops_used = get_llm_insight(
-                    ticker, selected_expiration, filtered_calls, filtered_puts, stock_df, question
+                    ticker=ticker,
+                    expiration=selected_expiration,
+                    calls_df=filtered_calls,
+                    puts_df=filtered_puts,
+                    stock_info=stock_df,
+                    user_question=question
                 )
-                st.markdown(f"✅ Completed in {loops_used} LLM interaction{'s' if loops_used > 1 else ''}")
-                st.markdown("#### AI Insight:")
-                st.markdown(summary)
+                if "error" in summary:
+                    st.error(summary["error"])
+                else:
+                    st.markdown(f"✅ Completed in {loops_used} LLM interaction{'s' if loops_used > 1 else ''}")
+                    render_llm_summary_card(summary)
 
     # --- TABS FOR DISPLAY ---
     tab1, tab2 = st.tabs(["▲ CALL Options", "▼ PUT Options"])

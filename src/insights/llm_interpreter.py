@@ -8,6 +8,11 @@ from openai import OpenAI
 import os
 from typing import Tuple
 from streamlit.runtime.caching import cache_data
+from src.utils.helpers import sanitize_insights
+
+import hashlib
+import json
+import re
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -48,7 +53,6 @@ def construct_prompt(
     calls_summary = summarize_option_chain(calls_df, "CALL")
     puts_summary = summarize_option_chain(puts_df, "PUT")
 
-    # Stock-level data
     stock_summary = textwrap.dedent(f"""
     Stock Overview:
     - Ticker: {ticker}
@@ -78,14 +82,21 @@ def construct_prompt(
 
     You may ask for 2 - 3 clarifications before your final response.
 
-    Return your final response using Markdown format:
-    - Use #### for section headers
-    - Use numbered lists for insights
-    - Use **bold** for emphasis
-    - Use `$...$` for inline math or strike prices (e.g., $105)
-    - Never use italics or combined styling on numbers or dollar values
-    - Put spaces between numeric labels and units (e.g., 'at the $105 strike', not '$105strike')
-    - Begin with a level-3 heading like "### {TICKER} Options Chain Summary"
+    Return only the JSON object. Do not include explanations, introductions, or closing remarks. Respond only with valid JSON in the exact format:
+    {
+    "summary_heading": "string",
+    "call_summary": {
+        "iv_range": "string",
+        "peak_volume_strike": float,
+        "peak_volume": int
+    },
+    "put_summary": {
+        "iv_range": "string",
+        "peak_oi_strike": float,
+        "peak_oi": int
+    },
+    "insights": [ "string", "string", ... ]
+    }
     ''')
 
     return [
@@ -106,8 +117,21 @@ def ask_openai(messages: list, model="gpt-4o", temperature=0.5, max_tokens=800):
     )
     return response.choices[0].message.content
 
-# === Step 4: Orchestrator ===
-@cache_data(show_spinner="Generating AI insight...")
+# === Step 4: Generate cache key ===
+def _make_cache_key(ticker, expiration, calls_df, puts_df, stock_info, user_question):
+    key_data = {
+        "ticker": ticker,
+        "expiration": expiration,
+        "user_question": user_question,
+        "calls_hash": int(pd.util.hash_pandas_object(calls_df, index=True).sum()),
+        "puts_hash": int(pd.util.hash_pandas_object(puts_df, index=True).sum()),
+        "price": stock_info.get("current_price", "N/A")
+    }
+    raw = json.dumps(key_data, sort_keys=True)
+    return hashlib.md5(raw.encode()).hexdigest()
+
+# === Step 5: Public entry point (with cache) ===
+@cache_data(show_spinner="Generating AI insight...", experimental_allow_widgets=True)
 def get_llm_insight(
     ticker: str,
     expiration: str,
@@ -115,7 +139,23 @@ def get_llm_insight(
     puts_df: pd.DataFrame,
     stock_info: dict,
     user_question: str
-) -> Tuple[str, int]:
+) -> Tuple[dict, int]:
+    cache_key = _make_cache_key(ticker, expiration, calls_df, puts_df, stock_info, user_question)
+    return _cached_llm_insight(ticker, expiration, calls_df, puts_df, stock_info, user_question, cache_key)
+
+# === Step 6: Cached internal logic ===
+@cache_data
+def _cached_llm_insight(ticker, expiration, calls_df, puts_df, stock_info, user_question, _cache_key) -> Tuple[dict, int]:
     messages = construct_prompt(ticker, expiration, calls_df, puts_df, stock_info, user_question)
-    summary = ask_openai(messages)
-    return summary, len(messages) - 4  # 4 = system + schema + stock + summary block
+    response = ask_openai(messages)
+
+    try:
+        json_match = re.search(r'\{[\s\S]+\}', response)
+        if not json_match:
+            raise ValueError("No JSON found")
+
+        parsed = json.loads(json_match.group(0))
+        parsed["insights"] = sanitize_insights(parsed.get("insights", []))
+        return parsed, len(messages) - 4
+    except Exception as e:
+        return {"error": f"Failed to parse JSON from GPT: {str(e)}"}, len(messages) - 4

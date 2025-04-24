@@ -112,3 +112,224 @@ Traceback (most recent call last):
     client = OpenAI()
              ^^^^^^
 NameError: name 'OpenAI' is not defined. Did you mean: 'openai'?
+2025-04-24 17:32:22.985 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 126, in <module>
+    summary, loops_used = get_llm_insight(...)
+                          ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/caching/cache_utils.py", line 168, in wrapper
+    return cached_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/caching/cache_utils.py", line 197, in __call__
+    return self._get_or_create_cached_value(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/caching/cache_utils.py", line 224, in _get_or_create_cached_value
+    return self._handle_cache_miss(cache, value_key, func_args, func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/caching/cache_utils.py", line 280, in _handle_cache_miss
+    computed_value = self._info.func(*func_args, **func_kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_llm_insight() missing 5 required positional arguments: 'expiration', 'calls_df', 'puts_df', 'stock_info', and 'user_question'
+2025-04-24 18:26:45.766 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 126, in <module>
+    summary, loops_used = get_llm_insight(...)
+                          ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/caching/cache_utils.py", line 168, in wrapper
+    return cached_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/caching/cache_utils.py", line 197, in __call__
+    return self._get_or_create_cached_value(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/caching/cache_utils.py", line 224, in _get_or_create_cached_value
+    return self._handle_cache_miss(cache, value_key, func_args, func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/caching/cache_utils.py", line 280, in _handle_cache_miss
+    computed_value = self._info.func(*func_args, **func_kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_llm_insight() missing 5 required positional arguments: 'expiration', 'calls_df', 'puts_df', 'stock_info', and 'user_question'
+2025-04-24 18:43:51.114 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 18:43:51.116 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 18:44:13.693 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 128, in <module>
+    summary, loops_used = get_llm_insight(
+                          ^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/caching/cache_utils.py", line 168, in wrapper
+    return cached_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/caching/cache_utils.py", line 197, in __call__
+    return self._get_or_create_cached_value(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/caching/cache_utils.py", line 224, in _get_or_create_cached_value
+    return self._handle_cache_miss(cache, value_key, func_args, func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/caching/cache_utils.py", line 280, in _handle_cache_miss
+    computed_value = self._info.func(*func_args, **func_kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py", line 143, in get_llm_insight
+    cache_key = _make_cache_key(ticker, expiration, calls_df, puts_df, stock_info, user_question)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py", line 130, in _make_cache_key
+    raw = json.dumps(key_data, sort_keys=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type uint64 is not JSON serializable
+2025-04-24 18:45:15.573 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 18:45:15.574 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 18:47:19.118 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 18:47:19.122 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 18:49:54.704 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 18:49:54.706 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 18:50:07.045 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 59, in <module>
+    render_ticker_details(stock_df["full_info"])
+  File "/Users/kshitijdutt/market-sentiment-app/src/ui/ticker_details.py", line 41, in render_ticker_details
+    st.dataframe(df_perf.set_index("Metric"), unsafe_allow_html=True)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ArrowMixin.dataframe() got an unexpected keyword argument 'unsafe_allow_html'
+2025-04-24 18:50:49.176 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 18:50:49.181 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
