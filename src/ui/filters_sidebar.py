@@ -29,14 +29,18 @@ def render_sidebar_filters(option_type: str, df):
         )
 
         volume_max = int(df["volume"].max())
-        volume_threshold = st.slider(
-            "Minimum Volume",
-            min_value=0,
-            max_value=volume_max,
-            value=0,
-            step=10,
-            key=f"volume_slider_{option_type}"
-        )
+        if volume_max == 0:
+            st.info("All options have zero volume.")
+            volume_threshold = 0
+        else:
+            volume_threshold = st.slider(
+                "Minimum Volume",
+                min_value=0,
+                max_value=volume_max,
+                value=0,
+                step=10,
+                key=f"vol_slider_{option_type}"
+            )
 
         st.markdown("#### Sentiment Filters")
         iv_min = float(df["impliedVolatility"].min())
@@ -51,14 +55,18 @@ def render_sidebar_filters(option_type: str, df):
         )
 
         oi_max = int(df["openInterest"].max())
-        oi_threshold = st.slider(
-            "Minimum Open Interest",
-            min_value=0,
-            max_value=oi_max,
-            value=0,
-            step=10,
-            key=f"oi_slider_{option_type}"
-        )
+        if oi_max == 0:
+            st.info("All options have zero open interest.")
+            oi_threshold = 0
+        else:
+            oi_threshold = st.slider(
+                "Minimum Open Interest",
+                min_value=0,
+                max_value=oi_max,
+                value=0,
+                step=10,
+                key=f"oi_slider_{option_type}"
+            )
 
         return {
             "strike_range": selected_strike,

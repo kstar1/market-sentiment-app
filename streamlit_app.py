@@ -4,6 +4,7 @@ import sys
 import os
 import streamlit as st
 import pandas as pd
+import re
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.data.option_loader import get_expirations, get_option_chain, get_stock_info
@@ -11,13 +12,15 @@ from src.ui.filters_sidebar import render_sidebar_filters
 from src.insights.llm_interpreter import get_llm_insight
 from src.ui.summary_card import render_llm_summary_card
 from src.ui.ticker_details import render_ticker_details
+from src.insights.llm_task_engine import run_insight_tasks
+from src.utils.helpers import render_task_output
 
 st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
 st.title("Market Sentiment Explorer")
 st.markdown("Explore PUT/CALL option chains to understand market expectations.")
 
 # --- Ticker Input ---
-ticker = st.text_input("Enter Ticker Symbol", value="AAPL").upper()
+ticker = st.text_input("Enter Ticker Symbol", value="TSLA").upper()
 
 if ticker:
     expirations = get_expirations(ticker)
@@ -87,24 +90,41 @@ if ticker:
             (puts_df["openInterest"] >= filters_put["open_interest_min"])
         ]
 
-    # --- AI INSIGHTS BLOCK (requires both filtered sets) ---
-    if not filtered_calls.empty and not filtered_puts.empty:
-        with st.expander("🤖 AI Insights"):
-            if st.button("Summarize Market Sentiment with AI", key="ai_summary_both"):
-                question = "Summarize trader sentiment and IV skew from this option chain."
-                summary, loops_used = get_llm_insight(
-                    ticker=ticker,
-                    expiration=selected_expiration,
-                    calls_df=filtered_calls,
-                    puts_df=filtered_puts,
-                    stock_info=stock_df,
-                    user_question=question
-                )
-                if "error" in summary:
-                    st.error(summary["error"])
+    # --- MULTI-INSIGHT STRATEGIST OUTPUT ---
+    st.markdown("## 📊 Strategic GPT Insights")
+    if st.button("🔍 Generate Multi-Insight Summary"):
+        multi_insights = run_insight_tasks(
+            ticker=ticker,
+            expiration=selected_expiration,
+            calls_df=filtered_calls,
+            puts_df=filtered_puts,
+            stock_info=stock_df
+        )
+        st.session_state.multi_insights = multi_insights
+        st.success("✅ Insights generated successfully!")
+
+    if "multi_insights" in st.session_state:
+        INTRO_COPY = {
+            "Sentiment Pulse": "Trader sentiment reveals whether the market is leaning bullish, bearish, or uncertain based on volume, OI, and volatility activity.",
+            "Support/Resistance": "These are levels where large option positions exist, often acting as technical barriers to price movement.",
+            "IV Skew Analysis": "Implied volatility skew shows how traders price in risk for upside vs downside. It gives clues about market expectations.",
+            "Unusual Flow": "Detects abnormal spikes in volume or OI, potentially showing large trades, hedging, or directional bets.",
+            "Risk Factors": "Highlights structural risks like time decay, volatility crashes, and exposure concentration within the option chain.",
+            "Strategist Summary": "This is a high-level narrative summarizing what a professional strategist might infer from this options data."
+        }
+
+        for insight in st.session_state.multi_insights:
+            task = insight.get("task", "Insight")
+            with st.expander(f"📌 {task}"):
+                st.markdown(f"_{INTRO_COPY.get(task, '')}_")
+
+                show_raw = st.checkbox("🔍 Show Raw GPT Response", key=f"raw_{task}", help="Toggle to view GPT's original output")
+
+                if "error" in insight:
+                    st.error(insight["error"])
+                    st.code(insight.get("raw_response", ""))
                 else:
-                    st.markdown(f"✅ Completed in {loops_used} LLM interaction{'s' if loops_used > 1 else ''}")
-                    render_llm_summary_card(summary)
+                    render_task_output(insight, show_raw=show_raw)
 
     # --- TABS FOR DISPLAY ---
     tab1, tab2 = st.tabs(["▲ CALL Options", "▼ PUT Options"])

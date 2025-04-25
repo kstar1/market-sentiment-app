@@ -333,3 +333,1971 @@ Traceback (most recent call last):
 streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
 
 For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 18:54:35.811 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 18:54:35.813 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 18:59:12.667 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 18:59:12.671 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 14, in <module>
+    from src.insights.llm_chain_runner import start_llm_chain, continue_llm_chain
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_chain_runner.py", line 7, in <module>
+    calls_df: pd.DataFrame,
+              ^^
+NameError: name 'pd' is not defined
+2025-04-24 19:01:15.380 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 19:01:15.381 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 14, in <module>
+    from src.insights.llm_chain_runner import start_llm_chain, continue_llm_chain
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_chain_runner.py", line 7, in <module>
+    calls_df: pd.DataFrame,
+              ^^
+NameError: name 'pd' is not defined
+2025-04-24 19:01:18.002 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 14, in <module>
+    from src.insights.llm_chain_runner import start_llm_chain, continue_llm_chain
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_chain_runner.py", line 7, in <module>
+    calls_df: pd.DataFrame,
+              ^^
+NameError: name 'pd' is not defined
+2025-04-24 19:06:47.402 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 19:06:47.403 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 19:10:20.477 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 19:10:20.479 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 19:11:13.202 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 157, in <module>
+    st.session_state.llm_followup_input = "What does this option chain suggest about market sentiment?"
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/session_state_proxy.py", line 133, in __setattr__
+    self[key] = value
+    ~~~~^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/session_state_proxy.py", line 111, in __setitem__
+    get_session_state()[key] = value
+    ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/safe_session_state.py", line 99, in __setitem__
+    self._state[key] = value
+    ~~~~~~~~~~~^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/session_state.py", line 472, in __setitem__
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `st.session_state.llm_followup_input` cannot be modified after the widget with key `llm_followup_input` is instantiated.
+2025-04-24 19:13:07.785 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 19:13:07.787 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 19:13:26.767 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 161, in <module>
+    st.session_state.update({"llm_followup_input": question})
+  File "<frozen _collections_abc>", line 982, in update
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/session_state_proxy.py", line 111, in __setitem__
+    get_session_state()[key] = value
+    ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/safe_session_state.py", line 99, in __setitem__
+    self._state[key] = value
+    ~~~~~~~~~~~^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/session_state.py", line 472, in __setitem__
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `st.session_state.llm_followup_input` cannot be modified after the widget with key `llm_followup_input` is instantiated.
+2025-04-24 23:38:40.981 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 161, in <module>
+    st.session_state.update({"llm_followup_input": question})
+  File "<frozen _collections_abc>", line 982, in update
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/session_state_proxy.py", line 111, in __setitem__
+    get_session_state()[key] = value
+    ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/safe_session_state.py", line 99, in __setitem__
+    self._state[key] = value
+    ~~~~~~~~~~~^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/session_state.py", line 472, in __setitem__
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `st.session_state.llm_followup_input` cannot be modified after the widget with key `llm_followup_input` is instantiated.
+2025-04-24 23:41:27.404 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 23:41:27.406 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 23:41:48.046 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 23:41:48.047 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 23:42:31.121 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 171, in <module>
+    if st.button("🧠 Start Self-Guided GPT Chain", key="start_chain"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/button.py", line 181, in button
+    return self.dg._button(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/button.py", line 818, in _button
+    button_state = register_widget(
+                   ^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/widgets.py", line 169, in register_widget
+    return register_widget_from_metadata(metadata, ctx, widget_func_name, element_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/widgets.py", line 202, in register_widget_from_metadata
+    raise DuplicateWidgetID(
+streamlit.errors.DuplicateWidgetID: There are multiple widgets with the same `key='start_chain'`.
+
+To fix this, please make sure that the `key` argument is unique for each
+widget you create.
+2025-04-24 23:42:38.363 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 215, in <module>
+    st.session_state.update({"llm_followup_input": question})
+  File "<frozen _collections_abc>", line 982, in update
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/session_state_proxy.py", line 111, in __setitem__
+    get_session_state()[key] = value
+    ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/safe_session_state.py", line 99, in __setitem__
+    self._state[key] = value
+    ~~~~~~~~~~~^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/session_state.py", line 472, in __setitem__
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `st.session_state.llm_followup_input` cannot be modified after the widget with key `llm_followup_input` is instantiated.
+2025-04-24 23:46:29.203 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 23:46:29.205 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 23:46:49.280 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 171, in <module>
+    if st.button("🧠 Start Self-Guided GPT Chain", key="start_chain"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/button.py", line 181, in button
+    return self.dg._button(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/button.py", line 818, in _button
+    button_state = register_widget(
+                   ^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/widgets.py", line 169, in register_widget
+    return register_widget_from_metadata(metadata, ctx, widget_func_name, element_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/widgets.py", line 202, in register_widget_from_metadata
+    raise DuplicateWidgetID(
+streamlit.errors.DuplicateWidgetID: There are multiple widgets with the same `key='start_chain'`.
+
+To fix this, please make sure that the `key` argument is unique for each
+widget you create.
+2025-04-24 23:47:49.396 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 23:47:49.398 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 23:54:07.119 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 23:54:07.121 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 23:57:18.983 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 23:57:18.986 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 23:57:52.092 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 23:57:52.094 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 23:59:00.964 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 23:59:00.970 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 23:59:16.993 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 128, in <module>
+    st.session_state.llm_summary = json.loads(st.session_state.llm_chain[-1]["content"])
+                                   ^^^^
+NameError: name 'json' is not defined. Did you forget to import 'json'
+2025-04-24 23:59:24.170 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 23:59:24.171 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-24 23:59:31.058 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-24 23:59:31.061 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-25 00:00:49.380 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-25 00:00:49.382 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-25 00:02:04.125 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 164, in <module>
+    st.session_state.llm_followup_input = ""
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/session_state_proxy.py", line 133, in __setattr__
+    self[key] = value
+    ~~~~^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/session_state_proxy.py", line 111, in __setitem__
+    get_session_state()[key] = value
+    ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/safe_session_state.py", line 99, in __setitem__
+    self._state[key] = value
+    ~~~~~~~~~~~^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/state/session_state.py", line 472, in __setitem__
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `st.session_state.llm_followup_input` cannot be modified after the widget with key `llm_followup_input` is instantiated.
+2025-04-25 00:04:25.261 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-25 00:04:25.263 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-25 00:04:53.124 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 123, in <module>
+    render_llm_summary_card(st.session_state.llm_summary)
+  File "/Users/kshitijdutt/market-sentiment-app/src/ui/summary_card.py", line 15, in render_llm_summary_card
+    summary["call_summary"]["iv_range"],
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'iv_range'
+2025-04-25 00:05:51.913 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-25 00:05:51.917 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-25 00:07:04.709 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-25 00:07:04.713 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-25 00:09:57.466 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-25 00:09:57.468 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-25 00:11:39.057 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-25 00:11:39.059 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-25 00:12:21.522 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-25 00:12:21.526 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-25 00:14:49.605 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-25 00:14:49.610 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-25 00:15:05.350 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-25 00:15:05.352 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-25 00:15:17.798 The `experimental_allow_widgets` parameter is deprecated and will be removed in a future release. Please remove the `experimental_allow_widgets` parameter from the `@st.cache_data` decorator and move all widget commands outside of cached functions.
+
+To speed up your app, we recommend moving your widgets into fragments. Find out more about fragments in [our docs](https://docs.streamlit.io/develop/api-reference/execution-flow/st.fragment). 
+
+If you have a specific use-case that requires the `experimental_allow_widgets` functionality, please tell us via an [issue on Github](https://github.com/streamlit/streamlit/issues).
+2025-04-25 00:15:17.800 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    st.set_page_config(page_title="Market Sentiment Explorer", layout="wide")
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/commands/page_config.py", line 260, in set_page_config
+    ctx.enqueue(msg)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_run_context.py", line 142, in enqueue
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: `set_page_config()` can only be called once per app page, and must be called as the first Streamlit command in your script.
+
+For more information refer to the [docs](https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config).
+2025-04-25 00:17:33.707 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 11, in <module>
+    from src.insights.llm_interpreter import get_llm_insight
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py", line 122, in <module>
+    @st.cache_data(show_spinner="Generating AI insight...")
+     ^^
+NameError: name 'st' is not defined
+2025-04-25 00:17:36.449 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 11, in <module>
+    from src.insights.llm_interpreter import get_llm_insight
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py", line 122, in <module>
+    @st.cache_data(show_spinner="Generating AI insight...")
+     ^^
+NameError: name 'st' is not defined
+/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py:151: FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  calls_df = pd.read_json(calls_json)
+/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py:152: FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  puts_df = pd.read_json(puts_json)
+/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py:151: FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  calls_df = pd.read_json(calls_json)
+/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py:152: FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  puts_df = pd.read_json(puts_json)
+/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py:152: FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  calls_df = pd.read_json(calls_json)
+/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py:153: FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  puts_df = pd.read_json(puts_json)
+/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py:151: FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  calls_df = pd.read_json(calls_json)
+/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py:152: FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  puts_df = pd.read_json(puts_json)
+/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py:151: FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  calls_df = pd.read_json(calls_json)
+/Users/kshitijdutt/market-sentiment-app/src/insights/llm_interpreter.py:152: FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  puts_df = pd.read_json(puts_json)
+2025-04-25 00:38:10.513 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 125, in <module>
+    with st.expander(f"📌 {insight.get('task', 'Insight')}"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/layouts.py", line 545, in expander
+    return self.dg._block(block_proto=block_proto)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/delta_generator.py", line 509, in _block
+    _check_nested_element_violation(self, block_type, ancestor_block_types)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/delta_generator.py", line 770, in _check_nested_element_violation
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: Expanders may not be nested inside other expanders.
+2025-04-25 00:40:15.686 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 106, in <module>
+    with st.expander(f"📌 {insight.get('task', 'Insight')}"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/layouts.py", line 545, in expander
+    return self.dg._block(block_proto=block_proto)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/delta_generator.py", line 509, in _block
+    _check_nested_element_violation(self, block_type, ancestor_block_types)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/delta_generator.py", line 770, in _check_nested_element_violation
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: Expanders may not be nested inside other expanders.
+2025-04-25 00:40:35.787 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 106, in <module>
+    with st.expander(f"📌 {insight.get('task', 'Insight')}"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/layouts.py", line 545, in expander
+    return self.dg._block(block_proto=block_proto)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/delta_generator.py", line 509, in _block
+    _check_nested_element_violation(self, block_type, ancestor_block_types)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/delta_generator.py", line 770, in _check_nested_element_violation
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: Expanders may not be nested inside other expanders.
+2025-04-25 00:41:02.989 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 106, in <module>
+    with st.expander(f"📌 {insight.get('task', 'Insight')}"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/layouts.py", line 545, in expander
+    return self.dg._block(block_proto=block_proto)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/delta_generator.py", line 509, in _block
+    _check_nested_element_violation(self, block_type, ancestor_block_types)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/delta_generator.py", line 770, in _check_nested_element_violation
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: Expanders may not be nested inside other expanders.
+2025-04-25 00:41:08.512 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 106, in <module>
+    with st.expander(f"📌 {insight.get('task', 'Insight')}"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/layouts.py", line 545, in expander
+    return self.dg._block(block_proto=block_proto)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/delta_generator.py", line 509, in _block
+    _check_nested_element_violation(self, block_type, ancestor_block_types)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/delta_generator.py", line 770, in _check_nested_element_violation
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: Expanders may not be nested inside other expanders.
+2025-04-25 00:41:53.638 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 106, in <module>
+    with st.expander(f"📌 {insight.get('task', 'Insight')}"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/layouts.py", line 545, in expander
+    return self.dg._block(block_proto=block_proto)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/delta_generator.py", line 509, in _block
+    _check_nested_element_violation(self, block_type, ancestor_block_types)
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/delta_generator.py", line 770, in _check_nested_element_violation
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: Expanders may not be nested inside other expanders.
+2025-04-25 00:42:52.217 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 81, in <module>
+    filters_put = render_sidebar_filters("PUT", puts_df)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/ui/filters_sidebar.py", line 54, in render_sidebar_filters
+    oi_threshold = st.slider(
+                   ^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/slider.py", line 340, in slider
+    return self._slider(
+           ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/slider.py", line 620, in _slider
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: Slider `min_value` must be less than the `max_value`.
+The values were 0 and 0.
+2025-04-25 00:42:56.235 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 81, in <module>
+    filters_put = render_sidebar_filters("PUT", puts_df)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/ui/filters_sidebar.py", line 54, in render_sidebar_filters
+    oi_threshold = st.slider(
+                   ^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/slider.py", line 340, in slider
+    return self._slider(
+           ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/slider.py", line 620, in _slider
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: Slider `min_value` must be less than the `max_value`.
+The values were 0 and 0.
+2025-04-25 00:43:09.745 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 81, in <module>
+    filters_put = render_sidebar_filters("PUT", puts_df)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/ui/filters_sidebar.py", line 54, in render_sidebar_filters
+    oi_threshold = st.slider(
+                   ^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/slider.py", line 340, in slider
+    return self._slider(
+           ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/slider.py", line 620, in _slider
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: Slider `min_value` must be less than the `max_value`.
+The values were 0 and 0.
+2025-04-25 00:44:02.337 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 70, in <module>
+    filters_call = render_sidebar_filters("CALL", calls_df)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/ui/filters_sidebar.py", line 54, in render_sidebar_filters
+    oi_threshold = st.slider(
+                   ^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/slider.py", line 340, in slider
+    return self._slider(
+           ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/slider.py", line 620, in _slider
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: Slider `min_value` must be less than the `max_value`.
+The values were 0 and 0.
+2025-04-25 00:44:05.697 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 70, in <module>
+    filters_call = render_sidebar_filters("CALL", calls_df)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/ui/filters_sidebar.py", line 54, in render_sidebar_filters
+    oi_threshold = st.slider(
+                   ^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/slider.py", line 340, in slider
+    return self._slider(
+           ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/slider.py", line 620, in _slider
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: Slider `min_value` must be less than the `max_value`.
+The values were 0 and 0.
+2025-04-25 00:44:13.075 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 70, in <module>
+    filters_call = render_sidebar_filters("CALL", calls_df)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/ui/filters_sidebar.py", line 54, in render_sidebar_filters
+    oi_threshold = st.slider(
+                   ^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/metrics_util.py", line 408, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/slider.py", line 340, in slider
+    return self._slider(
+           ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/elements/widgets/slider.py", line 620, in _slider
+    raise StreamlitAPIException(
+streamlit.errors.StreamlitAPIException: Slider `min_value` must be less than the `max_value`.
+The values were 0 and 0.
+2025-04-25 00:48:20.917 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 70, in <module>
+    filters_call = render_sidebar_filters("CALL", calls_df)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/ui/filters_sidebar.py", line 32, in render_sidebar_filters
+    if volume_max_max == 0:
+       ^^^^^^^^^^^^^^
+NameError: name 'volume_max_max' is not defined. Did you mean: 'volume_max'?
+2025-04-25 00:48:22.562 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 70, in <module>
+    filters_call = render_sidebar_filters("CALL", calls_df)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/ui/filters_sidebar.py", line 39, in render_sidebar_filters
+    max_value=oi_max,
+              ^^^^^^
+UnboundLocalError: cannot access local variable 'oi_max' where it is not associated with a value
+2025-04-25 00:48:34.941 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 70, in <module>
+    filters_call = render_sidebar_filters("CALL", calls_df)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/ui/filters_sidebar.py", line 39, in render_sidebar_filters
+    max_value=oi_max,
+              ^^^^^^
+UnboundLocalError: cannot access local variable 'oi_max' where it is not associated with a value
+2025-04-25 00:48:43.842 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 70, in <module>
+    filters_call = render_sidebar_filters("CALL", calls_df)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/ui/filters_sidebar.py", line 39, in render_sidebar_filters
+    max_value=oi_max,
+              ^^^^^^
+UnboundLocalError: cannot access local variable 'oi_max' where it is not associated with a value
+2025-04-25 00:48:48.839 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 70, in <module>
+    filters_call = render_sidebar_filters("CALL", calls_df)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/ui/filters_sidebar.py", line 39, in render_sidebar_filters
+    max_value=oi_max,
+              ^^^^^^
+UnboundLocalError: cannot access local variable 'oi_max' where it is not associated with a value
+2025-04-25 00:48:58.144 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 70, in <module>
+    filters_call = render_sidebar_filters("CALL", calls_df)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kshitijdutt/market-sentiment-app/src/ui/filters_sidebar.py", line 39, in render_sidebar_filters
+    max_value=oi_max,
+              ^^^^^^
+UnboundLocalError: cannot access local variable 'oi_max' where it is not associated with a value
+2025-04-25 01:11:23.816 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    from src.utils.helpers import render_task_output
+ImportError: cannot import name 'render_task_output' from 'src.utils.helpers' (/Users/kshitijdutt/market-sentiment-app/src/utils/helpers.py)
+2025-04-25 01:11:37.274 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    from src.utils.helpers import render_task_output
+ImportError: cannot import name 'render_task_output' from 'src.utils.helpers' (/Users/kshitijdutt/market-sentiment-app/src/utils/helpers.py)
+2025-04-25 01:11:55.896 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    from src.utils.helpers import render_task_output
+ImportError: cannot import name 'render_task_output' from 'src.utils.helpers' (/Users/kshitijdutt/market-sentiment-app/src/utils/helpers.py)
+2025-04-25 01:12:38.074 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    from src.utils.helpers import render_task_output
+ImportError: cannot import name 'render_task_output' from 'src.utils.helpers' (/Users/kshitijdutt/market-sentiment-app/src/utils/helpers.py)
+2025-04-25 01:12:40.679 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 16, in <module>
+    from src.utils.helpers import render_task_output
+ImportError: cannot import name 'render_task_output' from 'src.utils.helpers' (/Users/kshitijdutt/market-sentiment-app/src/utils/helpers.py)
+2025-04-25 01:14:01.283 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 125, in <module>
+    render_task_output(insight)
+  File "/Users/kshitijdutt/market-sentiment-app/src/utils/helpers.py", line 50, in render_task_output
+    st.markdown(f"**{key.replace('_', ' ').title()}:** {val}")
+    ^^
+NameError: name 'st' is not defined
+2025-04-25 01:14:18.786 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 125, in <module>
+    render_task_output(insight)
+  File "/Users/kshitijdutt/market-sentiment-app/src/utils/helpers.py", line 50, in render_task_output
+    st.markdown(f"**{key.replace('_', ' ').title()}:** {val}")
+    ^^
+NameError: name 'st' is not defined
+[Error] Unable to fetch expiration dates for TSLA: HTTPSConnectionPool(host='query2.finance.yahoo.com', port=443): Read timed out. (read timeout=30)
+🚨 Calling GPT... (This should only happen once per unique input)
+🚨 Calling GPT... (This should only happen once per unique input)
+🚨 GPT API CALL — should only see this once per unique input
+🚨 GPT API CALL — should only see this once per unique input
+🚨 GPT API CALL — should only happen once per input
+🚨 GPT API CALL — should only happen once per input
+🚨 GPT API CALL — should only happen once per input
+🚨 GPT API CALL — should only happen once per input
+🚨 GPT API CALL — should only happen once per input
+🚨 GPT API CALL — should only happen once per input
+🚨 GPT API CALL — should only happen once per input
+✅ GPT HIT — using cached summary
+🚨 GPT API CALL — should only happen once per input
+🚨 GPT API CALL — should only happen once per input
+✅ GPT HIT — using cached summary
+🚨 GPT API CALL — should only happen once per input
+🚨 GPT API CALL — should only happen once per input
+✅ GPT HIT — using cached summary
+🚨 GPT API CALL — should only happen once per input
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Sentiment Pulse]:
+{
+  "sentiment": "neutral",
+  "rationale": "The peak volume for call options is at the $260 strike, which is near the current stock price, indicating neutral sentiment with a slight bullish bias. However, the peak volume for puts is at the $250 strike, suggesting protection or bearish bets around the current price level. The average implied volatility for puts is slightly higher than for calls, indicating slight bearish sentiment, but overall, the sentiment is balanced due to the proximity of peak volumes to the current price.",
+  "key_levels": [250.0, 260.0],
+  "takeaway": "Despite analyst recommendations to hold, the options market shows a balanced sentiment with traders placing significant volume near the current stock price, reflecting uncertainty or a neutral outlook."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Support/Resistance]:
+{
+    "support_levels": [],
+    "resistance_levels": [],
+    "rationale": "The open interest data provided indicates no significant open interest at any strike prices, including the hotspot at $50.0 for both calls and puts, which is not relevant to the current price range of TSLA. Therefore, no clear support or resistance levels can be identified based on open interest patterns.",
+    "takeaway": "Without significant open interest at relevant strike prices, traders may need to rely on other technical or fundamental analysis methods to identify potential support and resistance levels for TSLA."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [IV Skew Analysis]:
+{
+    "skew_type": "Put Skew",
+    "key_observations": "The implied volatility for puts is higher on average than for calls, suggesting a preference for downside protection.",
+    "iv_range": "Calls: 0.0% - 50.0%, Puts: 0.0% - 100.0%",
+    "takeaway": "The market expects potential downside movement in TSLA, indicating investor caution and demand for protective puts."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Unusual Flow]:
+{
+    "flagged_strikes": [250.0, 260.0],
+    "observation": "Significant volume spikes at $250.0 for PUTs and $260.0 for CALLs suggest large trades or directional bets.",
+    "takeaway": "The high volume at these strikes may indicate strong market interest or speculation around these price levels for TSLA, possibly due to anticipated volatility or strategic positioning by traders."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Risk Factors]:
+{
+  "risks": [
+    "High implied volatility suggests potential for volatility compression, particularly in OTM PUTs.",
+    "Peak volume at $260 CALL strike indicates heavy speculative activity vulnerable to time decay.",
+    "High open interest at low $50 strike could imply significant downside hedging or speculative positioning, vulnerable to sharp price movements."
+  ],
+  "implications": "The options market is positioning for potential large moves in TSLA, with concentrations around current price levels and significant downside hedging. Time decay could erode value in these positions if volatility decreases or the stock remains range-bound.",
+  "takeaway": "Investors should be cautious of volatility compression and potential time decay, especially around the $260 CALL strike and $250 PUT strike, where speculative activity is highest."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Strategist Summary]:
+{
+    "summary_heading": "TSLA Options Chain Analysis for Expiry 2025-04-25",
+    "call_summary": {
+        "iv_range": "0.0% - 50.0%",
+        "peak_volume_strike": 260.0,
+        "peak_volume": 116797
+    },
+    "put_summary": {
+        "iv_range": "0.0% - 100.0%",
+        "peak_oi_strike": 50.0,
+        "peak_oi": 0
+    },
+    "insights": [
+        "The implied volatility for TSLA calls ranges from 0.0% to 50.0%, with a noticeable peak in volume at the $260 strike, indicating significant interest around the current price level.",
+        "For puts, the implied volatility extends from 0.0% to 100.0%, with the most open interest concentrated at the $50 strike, suggesting a protective stance by market participants at lower price levels.",
+        "The average implied volatility is slightly higher for puts (26.4%) compared to calls (25.2%), indicating a moderate skew towards downside protection.",
+        "The peak volume for calls at $260 suggests a critical zone for potential resistance or support, while the activity at $50 in puts may reflect hedging against extreme downside scenarios.",
+        "Given the current market conditions and the implied volatility skew, traders might consider strategies that capitalize on the volatility differential, such as vertical spreads or straddles at key strike zones."
+    ]
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Sentiment Pulse]:
+{
+    "summary_heading": "TSLA Options Analysis: Mixed Sentiment with Notable Divergences",
+    "call_summary": {
+        "iv_range": "0.0% - 50.0%",
+        "peak_volume_strike": 260.0,
+        "peak_volume": 116797
+    },
+    "put_summary": {
+        "iv_range": "0.0% - 100.0%",
+        "peak_oi_strike": 50.0,
+        "peak_oi": 0
+    },
+    "insights": [
+        "The peak volume for calls is at $260, slightly above the current price, indicating a bullish sentiment around this level.",
+        "High implied volatility in puts suggests traders are hedging or speculating on downside risk.",
+        "The analyst recommendation is 'hold', but options data shows a mixed sentiment with a slight bullish bias at current levels.",
+        "Despite high volumes, open interest is zero, indicating a lack of long-term conviction or recent option expiration."
+    ]
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Support/Resistance]:
+{
+    "support_levels": [50.0],
+    "resistance_levels": [50.0],
+    "rationale": "Both call and put options show a hotspot in open interest at the $50.0 strike, indicating a significant level of interest and potential support/resistance.",
+    "takeaway": "The $50.0 strike is a critical level to watch, as it could act as a major support or resistance point due to the high concentration of open interest."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [IV Skew Analysis]:
+{
+    "skew_type": "Downside protection",
+    "key_observations": "Put options have a higher average implied volatility (26.4%) compared to call options (25.2%), indicating a skew towards downside protection.",
+    "iv_range": "Call IV range: 0.0% - 50.0%, Put IV range: 0.0% - 100.0%",
+    "takeaway": "The market is pricing in greater risk for downside moves, suggesting investors are more concerned about potential declines in TSLA's stock price."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Unusual Flow]:
+{
+    "flagged_strikes": [
+        {
+            "strike": 260.0,
+            "type": "CALL",
+            "volume": 116797,
+            "reason": "Unusually high volume indicating potential bullish sentiment."
+        },
+        {
+            "strike": 250.0,
+            "type": "PUT",
+            "volume": 113859,
+            "reason": "Significant volume suggesting bearish bets or hedging activity."
+        }
+    ],
+    "observation": "Both call and put options show substantial volume at strikes near the current price, indicating active trading interest and potential directional bets.",
+    "takeaway": "The high volume at the $260 call and $250 put suggests traders are positioning for significant movement in TSLA's price, possibly due to upcoming events or market sentiment shifts."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Risk Factors]:
+{
+    "risks": [
+        "High implied volatility in both calls and puts suggests potential for significant price swings.",
+        "Concentration of volume at $260 for calls and $250 for puts indicates vulnerability to price movements around these strikes.",
+        "Zero open interest may imply lack of commitment or liquidity risk, increasing slippage potential."
+    ],
+    "implications": "The options chain suggests a market expectation of high volatility, possibly due to macroeconomic factors or upcoming events affecting TSLA. Traders should be cautious of potential sharp movements around the $250-$260 price range.",
+    "takeaway": "Investors should monitor for news or events that could trigger volatility, and consider hedging strategies to manage risk around the high-volume strikes of $250 and $260."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Strategist Summary]:
+{
+    "summary_heading": "TSLA Options Chain Analysis for 2025-04-25 Expiry",
+    "call_summary": {
+        "iv_range": "0.0% - 50.0%",
+        "peak_volume_strike": 260.0,
+        "peak_volume": 116797
+    },
+    "put_summary": {
+        "iv_range": "0.0% - 100.0%",
+        "peak_oi_strike": 50.0,
+        "peak_oi": 0
+    },
+    "insights": [
+        "The implied volatility for calls ranges from 0.0% to 50.0%, indicating a wide spectrum of expected price movement.",
+        "The peak volume for call options is concentrated at the $260 strike, closely aligning with the current stock price of $259.51, suggesting significant interest at-the-money.",
+        "For puts, the implied volatility is slightly higher on average at 26.4% and ranges up to 100.0%, showing greater demand for downside protection.",
+        "The peak open interest for puts is at the $50 strike, which is deep out-of-the-money, possibly indicating hedging strategies or speculative bets.",
+        "The IV skew with higher volatility on puts suggests a bearish sentiment or demand for downside protection, which is typical for a high-beta stock like TSLA.",
+        "Given the analyst recommendation to hold and the current IV skew, a neutral to slightly bearish options strategy may be considered, such as a protective collar or calendar spread."
+    ]
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Sentiment Pulse]:
+{
+    "sentiment": "neutral",
+    "rationale": "The options chain shows high activity at the $105 strike for both calls and puts, with peak volumes of 135,286 and 114,808 contracts respectively. This indicates significant interest at-the-money, reflecting uncertainty or hedging strategies rather than directional bets. The higher average implied volatility for puts (25.7%) compared to calls (21.8%) suggests a slight concern for downside risk, despite the strong buy analyst recommendation.",
+    "key_levels": [105.0],
+    "takeaway": "While the analyst consensus is strong_buy, the options market sentiment appears neutral, with traders positioning for potential volatility around the current price level rather than a strong directional move."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Support/Resistance]:
+{
+    "support_levels": [5.0],
+    "resistance_levels": [],
+    "rationale": "The $5.0 strike shows a hotspot in open interest for both calls and puts, indicating a significant level of interest and potential support. No other strikes display elevated open interest to suggest resistance levels.",
+    "takeaway": "The $5.0 strike is a notable support level due to concentrated open interest, while no clear resistance levels are identified from the current open interest data."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [IV Skew Analysis]:
+{
+    "skew_type": "Downside Protection",
+    "key_observations": "Put options have higher average implied volatility compared to call options, indicating a skew towards downside protection.",
+    "iv_range": "Calls IV: 0.0% - 50.0%, Puts IV: 0.0% - 100.0%",
+    "takeaway": "The higher implied volatility in puts suggests that the market is pricing in more risk to the downside, potentially due to concerns over future volatility or a correction in NVDA's stock price."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Unusual Flow]:
+{
+    "flagged_strikes": [105.0, 5.0],
+    "observation": "Both call and put options exhibit unusually high volume at the $105 strike, indicating significant trading activity and potential directional bets. Additionally, open interest hotspots at the $5 strike for both calls and puts suggest new positions being established.",
+    "takeaway": "The high volume at the $105 strike could imply a market expectation of NVDA's price gravitating towards this level by the expiration date. Meanwhile, the new open interest at the $5 strike may indicate speculative or hedging strategies, possibly due to the low cost of entry."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Risk Factors]:
+{
+    "risks": [
+        "High implied volatility in both calls and puts suggests potential for large price swings, exposing positions to volatility compression risk.",
+        "Peak volume at the $105.0 strike for both calls and puts indicates significant interest and potential vulnerability to time decay as expiry approaches.",
+        "Zero open interest across strikes may indicate a lack of long-term conviction or recent initiation of positions, suggesting potential liquidity risk."
+    ],
+    "implications": "The elevated implied volatility and concentrated trading activity at the $105.0 strike highlight the market's anticipation of significant stock movement, potentially driven by macroeconomic factors or earnings announcements.",
+    "takeaway": "Traders should be cautious of high volatility and time decay, especially at the $105.0 strike, while considering potential catalysts that could impact NVDA's price leading up to the April 2025 expiration."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Strategist Summary]:
+{
+    "summary_heading": "NVDA Options Chain Analysis for Expiry 2025-04-25",
+    "call_summary": {
+        "iv_range": "0.0% - 50.0%",
+        "peak_volume_strike": 105.0,
+        "peak_volume": 135286
+    },
+    "put_summary": {
+        "iv_range": "0.0% - 100.0%",
+        "peak_oi_strike": 5.0,
+        "peak_oi": 0
+    },
+    "insights": [
+        "The NVDA options chain displays a concentration of call volume at the $105 strike, indicating significant interest around the current stock price level of $106.43.",
+        "Implied volatility is skewed higher for puts, averaging 25.7% compared to 21.8% for calls, suggesting a market expectation of downside risk.",
+        "Both calls and puts show a notable lack of open interest, with a hotspot at the $5 strike, potentially indicating a lack of conviction in long-term positioning.",
+        "The strong buy recommendation and high beta of 1.958 imply potential for volatility, aligning with the elevated implied volatilities observed, particularly in puts.",
+        "Clients might consider strategies that capitalize on volatility discrepancies, such as straddles or strangles, especially given the skew and the volume hotspot at $105."
+    ]
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Sentiment Pulse]:
+{
+    "sentiment": "neutral",
+    "rationale": "The option chain shows a balanced interest between calls and puts, with the peak call volume at the $260 strike and peak put volume at the $250 strike. Implied volatility is slightly higher for puts, indicating some caution, but overall volumes and the proximity of peak interest to the current stock price suggest neutrality. This aligns with the analyst recommendation of 'hold'.",
+    "key_levels": [250.0, 260.0],
+    "takeaway": "Traders seem to be positioning for a range-bound movement around the current price level of TSLA, with no significant deviation from the analyst 'hold' consensus."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Support/Resistance]:
+{
+    "support_levels": [50.0],
+    "resistance_levels": [],
+    "rationale": "The open interest hotspot at $50.0 for both calls and puts suggests a significant level of market interest and potential support, as there is no other strike with elevated open interest.",
+    "takeaway": "The $50.0 strike is a critical support level due to its high open interest, indicating strong market positioning at this level."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [IV Skew Analysis]:
+{
+  "skew_type": "Downside Skew",
+  "key_observations": "PUT options have a higher average IV of 26.4% compared to CALL options at 25.2%, indicating a demand for downside protection.",
+  "iv_range": "CALL IV range: 0.0% - 50.0%, PUT IV range: 0.0% - 100.0%",
+  "takeaway": "The market is pricing in a higher potential for downside risk, suggesting that investors are seeking protection against a decline in TSLA's stock price."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Unusual Flow]:
+{
+    "flagged_strikes": [260.0, 250.0],
+    "observation": "Unusually high volume observed at call strike $260.0 with 116,797 contracts and put strike $250.0 with 113,859 contracts, indicating potential large trades or directional bets around the current price level of $259.51.",
+    "takeaway": "The volume spikes at these strikes suggest traders are actively positioning around the current stock price, possibly anticipating significant movement or hedging against volatility."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Risk Factors]:
+{
+    "risks": [
+        "High implied volatility in both calls and puts suggests potential for significant price swings.",
+        "Peak volume in calls at $260.0 indicates potential vulnerability to time decay if the stock price remains stagnant.",
+        "Peak volume in puts at $250.0 suggests downside protection interest, but also risk of volatility compression if market stabilizes."
+    ],
+    "implications": "The high open interest at the $50.0 strike for both calls and puts indicates significant speculative positioning, potentially leading to large moves or volatility around this level.",
+    "takeaway": "Traders should be cautious of high volatility and potential for rapid price changes, especially around the $250.0 and $260.0 strikes, where volume is concentrated."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Strategist Summary]:
+{
+    "summary_heading": "TSLA Options Chain Analysis for Expiry on 2025-04-25",
+    "call_summary": {
+        "iv_range": "0.0% - 50.0%",
+        "peak_volume_strike": 260.0,
+        "peak_volume": 116797
+    },
+    "put_summary": {
+        "iv_range": "0.0% - 100.0%",
+        "peak_oi_strike": 50.0,
+        "peak_oi": 0
+    },
+    "insights": [
+        "The options chain for TSLA reveals a skew with higher implied volatility in puts, averaging 26.4% compared to 25.2% for calls, indicating a bearish sentiment or demand for downside protection.",
+        "The highest volume for calls is concentrated at the $260 strike, suggesting significant interest around the current market price, possibly indicating expectations for TSLA to hover around this level.",
+        "Despite high volume activity, open interest remains notably low, which could imply recent positioning or a lack of conviction in holding positions over the long term.",
+        "The peak open interest for puts at the $50 strike is unusual and may indicate protective strategies or speculative positioning far below the current price.",
+        "Given the elevated implied volatility in puts and the strategic positioning at the $260 strike for calls, clients might consider deploying strategies that capitalize on potential volatility shifts, such as straddles or strangles, particularly if anticipating significant price movements in TSLA."
+    ]
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Sentiment Pulse]:
+{
+    "sentiment": "neutral",
+    "rationale": "The volume for both calls and puts is high, with calls peaking at the $260 strike and puts at the $250 strike, both near the current price of $259.51. This indicates a balanced interest in both upward and downward movements. The implied volatility is slightly higher for puts, suggesting a mild concern for downside risk, but the overall sentiment remains neutral given the balanced volume and the analyst recommendation to hold.",
+    "key_levels": [250.0, 260.0],
+    "takeaway": "Traders are positioning near the current stock price, reflecting a neutral sentiment. While there is a slight skew towards protective puts, the balanced volume suggests no strong directional bias, aligning with the hold recommendation from analysts."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Support/Resistance]:
+{
+    "support_levels": [50.0],
+    "resistance_levels": [],
+    "rationale": "The open interest hotspots are concentrated at the $50.0 strike for both calls and puts, indicating a potential support level. No significant resistance levels identified due to lack of elevated open interest at higher strikes.",
+    "takeaway": "The $50.0 strike may act as a strong support level due to high open interest concentration, but no clear resistance levels are evident from the current open interest data."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [IV Skew Analysis]:
+{
+    "skew_type": "Downside Protection Skew",
+    "key_observations": "Implied volatility for PUT options averages higher than for CALL options, indicating a demand for downside protection.",
+    "iv_range": "CALL IV range: 0.0% - 50.0%, PUT IV range: 0.0% - 100.0%",
+    "takeaway": "The higher implied volatility in PUT options suggests that the market is pricing in potential downside risk, indicating investors are seeking protection against a decline in TSLA's stock price."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Unusual Flow]:
+{
+    "flagged_strikes": [260.0, 250.0],
+    "observation": "Both call and put options have significant volume at strikes close to the current price, indicating active trading and potential large directional bets.",
+    "takeaway": "The volume spikes at $260 for calls and $250 for puts suggest traders are positioning for significant movement around the current price level, possibly due to anticipated volatility in TSLA."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Risk Factors]:
+{
+    "risks": [
+        "High implied volatility in both calls and puts suggests potential for large price swings, increasing risk of volatility compression.",
+        "Peak volume in calls at $260.0 and puts at $250.0 indicates concentrated interest around current price, making these strikes vulnerable to rapid changes in sentiment.",
+        "Zero open interest across the board may suggest a lack of longer-term positioning, increasing risk of liquidity issues."
+    ],
+    "implications": "The high implied volatility and concentrated volume near the current stock price suggest traders are positioning for significant movement in either direction. Lack of open interest may exacerbate price moves due to low liquidity.",
+    "takeaway": "Traders should be cautious of potential volatility compression and liquidity risks, especially at the $250.0 and $260.0 strikes, where positions are most concentrated and vulnerable."
+}
+==================================================2025-04-25 01:52:47.197 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 127, in <module>
+    render_task_output(insight, show_raw=show_raw)
+TypeError: render_task_output() got an unexpected keyword argument 'show_raw'
+
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Strategist Summary]:
+{
+    "summary_heading": "TSLA Options Chain Analysis for April 2025 Expiry",
+    "call_summary": {
+        "iv_range": "0.0% - 50.0%",
+        "peak_volume_strike": 260.0,
+        "peak_volume": 116797
+    },
+    "put_summary": {
+        "iv_range": "0.0% - 100.0%",
+        "peak_oi_strike": 50.0,
+        "peak_oi": 0
+    },
+    "insights": [
+        "The call options show significant interest at the $260 strike, aligning closely with the current stock price, indicating a potential resistance or target level for bullish traders.",
+        "Put options exhibit a higher average implied volatility compared to calls, suggesting a skew favoring downside protection or bearish sentiment.",
+        "The peak open interest for both calls and puts is at the $50 strike, which may indicate a long-term hedging strategy or deep out-of-the-money positioning.",
+        "Given the higher implied volatility in puts, investors might consider strategies that capitalize on volatility skew, such as put spreads or ratio spreads.",
+        "With the stock trading near the peak call volume strike, a straddle or strangle strategy could be considered to benefit from potential volatility around this critical level."
+    ]
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Sentiment Pulse]:
+{
+    "summary_heading": "TSLA Options Sentiment Analysis",
+    "call_summary": {
+        "iv_range": "0.0% - 50.0%",
+        "peak_volume_strike": 260.0,
+        "peak_volume": 116797
+    },
+    "put_summary": {
+        "iv_range": "0.0% - 100.0%",
+        "peak_oi_strike": 50.0,
+        "peak_oi": 0
+    },
+    "insights": [
+        "The peak call volume at the $260 strike, which is near the current price, indicates bullish sentiment with traders expecting stability or a slight increase in TSLA's price.",
+        "The higher average implied volatility for puts suggests a greater demand for downside protection, possibly indicating caution or bearish sentiment.",
+        "Despite the analyst recommendation of 'hold', the large volume in calls at the ATM level suggests traders are positioning for upward movement.",
+        "The lack of open interest hotspots suggests that these positions might be more speculative or short-term in nature, rather than being held for longer-term strategic purposes."
+    ]
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Support/Resistance]:
+{
+  "support_levels": [50.0],
+  "resistance_levels": [],
+  "rationale": "The open interest hotspot for both calls and puts is at the $50 strike, indicating a strong support level due to significant activity at this strike. There are no other strikes with significantly elevated open interest to suggest resistance levels.",
+  "takeaway": "The $50 strike is a critical support level for TSLA options expiring on 2025-04-25, as indicated by the concentrated open interest. No clear resistance levels were identified from the current open interest patterns."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [IV Skew Analysis]:
+{
+    "skew_type": "put_skew",
+    "key_observations": "Put options have a higher average implied volatility (26.4%) compared to call options (25.2%). This suggests a preference for downside protection.",
+    "iv_range": "Call IV range: 0.0% - 50.0%, Put IV range: 0.0% - 100.0%",
+    "takeaway": "The market is pricing in higher volatility for downside moves, indicating a concern for potential declines in TSLA's price. This put skew suggests that investors may be seeking protection against bearish scenarios."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Unusual Flow]:
+{
+    "flagged_strikes": [260.0, 250.0],
+    "observation": "Significant volume spikes observed at the $260 call strike and $250 put strike, indicating potential large trades or directional bets.",
+    "takeaway": "The concentration of volume at these strikes suggests traders are positioning for a move near the current stock price of $259.51, possibly reflecting expectations for volatility or directional movement."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Risk Factors]:
+{
+    "risks": [
+        "High implied volatility in both calls and puts suggests potential volatility compression risk.",
+        "Significant volume at strikes near current price ($259.51) indicates vulnerability to time decay if price remains stable.",
+        "Peak volume at $260 for calls and $250 for puts suggests market anticipation of movement around these levels, increasing exposure to incorrect directional bets."
+    ],
+    "implications": "The options market is pricing in significant movement for TSLA, likely due to its high beta and potential earnings or news events. Positions at or near the current price are particularly vulnerable to both time decay and volatility changes.",
+    "takeaway": "Traders should be cautious of holding positions too close to the current price due to high volume and potential for rapid changes in implied volatility. Consider strategies that mitigate time decay and volatility compression risks."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Strategist Summary]:
+{
+    "summary_heading": "TSLA Options Chain Analysis for Expiry 2025-04-25",
+    "call_summary": {
+        "iv_range": "0.0% - 50.0%",
+        "peak_volume_strike": 260.0,
+        "peak_volume": 116797
+    },
+    "put_summary": {
+        "iv_range": "0.0% - 100.0%",
+        "peak_oi_strike": 50.0,
+        "peak_oi": 0
+    },
+    "insights": [
+        "The call options show a significant volume concentration at the $260 strike, closely aligned with the current stock price, indicating a potential key resistance level.",
+        "Put options display a high implied volatility range, suggesting heightened uncertainty or protection demand, especially at lower strikes.",
+        "There is a noticeable IV skew with puts averaging higher IV than calls, reflecting potential downside hedging activity.",
+        "Open interest is notably absent, which could indicate a lack of long-term positioning or recent rollovers."
+    ]
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Sentiment Pulse]:
+{
+    "sentiment": "neutral",
+    "rationale": "The options chain for TSLA shows high volume activity around the ATM strike of $260 for calls and $250 for puts, indicating balanced interest in both upward and downward movements. The implied volatility is slightly higher for puts, which often suggests a protective stance, but the overall volume distribution suggests no strong directional bias. The analyst recommendation is 'hold', aligning with the observed neutral sentiment.",
+    "key_levels": [250.0, 260.0],
+    "takeaway": "Traders are showing balanced interest in both calls and puts near the current price, suggesting a neutral market sentiment despite TSLA's high beta. This aligns with the analyst hold recommendation, indicating no clear consensus on a directional move."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Support/Resistance]:
+{
+  "support_levels": [50.0],
+  "resistance_levels": [],
+  "rationale": "The open interest hotspot at the $50.0 strike for both calls and puts indicates a significant level of interest, suggesting it could act as a support level. No other strikes showed elevated open interest.",
+  "takeaway": "The $50.0 strike appears to be a critical support level due to concentrated open interest, but no clear resistance levels are evident from the data provided."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [IV Skew Analysis]:
+{
+    "skew_type": "OTM PUT skew",
+    "key_observations": "Put options have a higher average IV (26.4%) compared to call options (25.2%), indicating a skew towards downside protection.",
+    "iv_range": "Calls: 0.0% - 50.0%, Puts: 0.0% - 100.0%",
+    "takeaway": "The market is pricing in greater uncertainty or demand for protection on the downside, suggesting a cautious outlook on TSLA's future price movements."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Unusual Flow]:
+{
+    "flagged_strikes": [260.0, 250.0],
+    "observation": "There is a significant volume spike in call options at the $260 strike with 116,797 contracts and in put options at the $250 strike with 113,859 contracts.",
+    "takeaway": "The high volume at these strikes suggests potential large directional bets or hedging activities, indicating strong interest in these price levels for TSLA."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Risk Factors]:
+{
+    "risks": [
+        "High implied volatility in both calls and puts suggests potential for significant price swings.",
+        "Peak volume in calls at $260 strike indicates heavy positioning that could be vulnerable to time decay if the stock doesn't move significantly.",
+        "Peak volume in puts at $250 strike suggests downside protection or speculation, vulnerable to volatility compression if implied volatility decreases.",
+        "Open interest hotspots at deep in-the-money strikes ($50) may indicate long-term hedging strategies that could be exposed to changes in volatility or interest rates."
+    ],
+    "implications": "The options market is pricing in significant movement for TSLA, but positions are vulnerable to time decay and volatility compression, especially around key strikes.",
+    "takeaway": "Traders should monitor implied volatility levels and be cautious of time decay, particularly around the $250 and $260 strikes where volume is concentrated."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Strategist Summary]:
+{
+    "summary_heading": "TSLA Options Chain Analysis for April 2025 Expiry",
+    "call_summary": {
+        "iv_range": "0.0% - 50.0%",
+        "peak_volume_strike": 260.0,
+        "peak_volume": 116797
+    },
+    "put_summary": {
+        "iv_range": "0.0% - 100.0%",
+        "peak_oi_strike": 50.0,
+        "peak_oi": 0
+    },
+    "insights": [
+        "The TSLA options chain shows significant activity around the $260 strike for calls, indicating a potential resistance or target level for bullish strategies.",
+        "Put options exhibit a broader range of implied volatility, peaking at 100%, suggesting heightened demand or risk perception for downside protection.",
+        "The implied volatility skew favors puts, indicating a market bias towards hedging against downside moves.",
+        "High volume in both calls and puts around the current price level suggests that traders are positioning for potential volatility in the near term.",
+        "With no significant open interest concentrations, liquidity may be a consideration for larger positions.",
+        "Given the elevated implied volatility and peak volume at the $260 strike, a straddle strategy could be considered to capitalize on expected price movement."
+    ]
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Sentiment Pulse]:
+{
+    "sentiment": "neutral",
+    "rationale": "The high volume at the $260 call strike and $250 put strike suggests balanced interest around the current stock price of $259.51. The average implied volatility is slightly higher for puts, indicating a slight edge towards protective positioning, but overall volumes are substantial on both sides. This aligns with the analyst recommendation of 'hold'.",
+    "key_levels": [260.0, 250.0],
+    "takeaway": "Traders are showing significant interest in both call and put options around the current stock price, reflecting a neutral sentiment with no strong directional bias, consistent with the 'hold' recommendation from analysts."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Support/Resistance]:
+{
+    "support_levels": [50.0],
+    "resistance_levels": [50.0],
+    "rationale": "Open interest hotspots are observed at the $50.0 strike for both calls and puts, indicating a significant concentration of contracts at this level. This suggests a potential support and resistance level due to the high interest at this strike.",
+    "takeaway": "The $50.0 strike may serve as a critical level for TSLA options, acting as both support and resistance, given the concentrated open interest."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [IV Skew Analysis]:
+{
+    "skew_type": "Downside protection",
+    "key_observations": "Put options have a higher average implied volatility of 26.4% compared to call options at 25.2%.",
+    "iv_range": "Call IV range: 0.0% - 50.0%, Put IV range: 0.0% - 100.0%",
+    "takeaway": "The higher implied volatility in put options suggests that there is a greater demand for downside protection, indicating that the market may be expecting potential downward movements in TSLA's stock price."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Unusual Flow]:
+{
+    "flagged_strikes": [250.0, 260.0],
+    "observation": "Significant volume spikes observed at call strike $260.0 and put strike $250.0 indicating potential large directional bets or hedging activity.",
+    "takeaway": "The volume peaks at these strikes suggest that traders may be positioning for a move around the current price level of $259.51, possibly anticipating volatility or a significant price change by April 2025."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Risk Factors]:
+{
+    "risks": [
+        "High implied volatility suggests potential for significant price movement, increasing risk for option sellers.",
+        "Peak volume at ATM strikes ($260 for calls and $250 for puts) indicates heightened activity and potential vulnerability to price swings around these levels.",
+        "Zero open interest suggests lack of long-term commitments, increasing the risk of volatility compression as positions may not be held to expiration."
+    ],
+    "implications": "The options market is pricing in substantial movement for TSLA, especially around the current price level, which could lead to rapid changes in option pricing as market conditions evolve.",
+    "takeaway": "Traders should be cautious of high volatility and lack of open interest, as these factors could lead to rapid changes in option premiums and increased sensitivity to price movements near the peak volume strikes."
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Strategist Summary]:
+{
+    "summary_heading": "TSLA Options Chain Analysis for Expiry 2025-04-25",
+    "call_summary": {
+        "iv_range": "0.0% - 50.0%",
+        "peak_volume_strike": 260.0,
+        "peak_volume": 116797
+    },
+    "put_summary": {
+        "iv_range": "0.0% - 100.0%",
+        "peak_oi_strike": 50.0,
+        "peak_oi": 0
+    },
+    "insights": [
+        "The call options exhibit a peak in volume at the $260 strike, closely aligned with the current stock price of $259.51, indicating significant interest at-the-money.",
+        "Put options show a high implied volatility range, peaking at 100%, suggesting expectations of potential downside risk or volatility.",
+        "The IV skew between puts and calls implies a bearish sentiment, with puts having a higher average IV than calls.",
+        "High open interest at the $50 strike for both calls and puts suggests a strategic interest in deep out-of-the-money options, possibly for hedging or speculative purposes.",
+        "Given the analyst recommendation to hold and the high beta of 2.58, options traders might expect substantial price movements, making volatility strategies attractive."
+    ]
+}
+==================================================
+
+🟡 RAW CLEANED RESPONSE FOR TASK [Sentiment Pulse]:
+{
+    "sentiment": "neutral",
+    "rationale": "The options chain shows significant activity in both call and put options, with peak volumes at strikes close to the current stock price, indicating a balanced outlook. The average implied volatility is slightly higher for puts, suggesting some caution. However, the lack of open interest data prevents a deeper analysis of long-term positioning.",
+    "key_levels": [250.0, 260.0],
+    "takeaway": "Despite the analyst recommendation to hold, the options market reflects a neutral sentiment with balanced trading activity between calls and puts around the current price level, indicating uncertainty or hedging strategies by traders."
+}
+==================================================2025-04-25 02:02:13.542 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    from src.insights.llm_task_engine import run_insight_tasks
+  File "/Users/kshitijdutt/market-sentiment-app/src/insights/llm_task_engine.py", line 76
+    results = []
+IndentationError: unexpected indent
+2025-04-25 02:09:12.215 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    from src.insights.llm_task_engine import run_insight_tasks
+ImportError: cannot import name 'run_insight_tasks' from 'src.insights.llm_task_engine' (/Users/kshitijdutt/market-sentiment-app/src/insights/llm_task_engine.py)
+2025-04-25 02:09:21.932 Uncaught app exception
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 85, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 576, in code_to_exec
+    exec(code, module.__dict__)
+  File "/Users/kshitijdutt/market-sentiment-app/streamlit_app.py", line 15, in <module>
+    from src.insights.llm_task_engine import run_insight_tasks
+ImportError: cannot import name 'run_insight_tasks' from 'src.insights.llm_task_engine' (/Users/kshitijdutt/market-sentiment-app/src/insights/llm_task_engine.py)

@@ -1,5 +1,4 @@
 # src/insights/llm_interpreter.py
-
 import openai
 import pandas as pd
 import textwrap
@@ -7,12 +6,14 @@ from dotenv import load_dotenv
 from openai import OpenAI
 import os
 from typing import Tuple
+import streamlit as st
 from streamlit.runtime.caching import cache_data
 from src.utils.helpers import sanitize_insights
 
 import hashlib
 import json
 import re
+import time
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -117,21 +118,8 @@ def ask_openai(messages: list, model="gpt-4o", temperature=0.5, max_tokens=800):
     )
     return response.choices[0].message.content
 
-# === Step 4: Generate cache key ===
-def _make_cache_key(ticker, expiration, calls_df, puts_df, stock_info, user_question):
-    key_data = {
-        "ticker": ticker,
-        "expiration": expiration,
-        "user_question": user_question,
-        "calls_hash": int(pd.util.hash_pandas_object(calls_df, index=True).sum()),
-        "puts_hash": int(pd.util.hash_pandas_object(puts_df, index=True).sum()),
-        "price": stock_info.get("current_price", "N/A")
-    }
-    raw = json.dumps(key_data, sort_keys=True)
-    return hashlib.md5(raw.encode()).hexdigest()
-
 # === Step 5: Public entry point (with cache) ===
-@cache_data(show_spinner="Generating AI insight...", experimental_allow_widgets=True)
+@st.cache_data(show_spinner="Generating AI insight...")
 def get_llm_insight(
     ticker: str,
     expiration: str,
@@ -139,16 +127,33 @@ def get_llm_insight(
     puts_df: pd.DataFrame,
     stock_info: dict,
     user_question: str
-) -> Tuple[dict, int]:
-    cache_key = _make_cache_key(ticker, expiration, calls_df, puts_df, stock_info, user_question)
-    return _cached_llm_insight(ticker, expiration, calls_df, puts_df, stock_info, user_question, cache_key)
+):
+    print("🚨 GPT API CALL — should only happen once per input")
 
-# === Step 6: Cached internal logic ===
-@cache_data
-def _cached_llm_insight(ticker, expiration, calls_df, puts_df, stock_info, user_question, _cache_key) -> Tuple[dict, int]:
+    # Normalize DataFrames for hashing
+    calls_key = calls_df.sort_index(axis=1).to_json()
+    puts_key = puts_df.sort_index(axis=1).to_json()
+    stock_key = json.dumps(stock_info, sort_keys=True)
+    
+    return _cached_llm_insight(ticker, expiration, calls_key, puts_key, stock_key, user_question)
+
+
+@st.cache_data
+def _cached_llm_insight(
+    ticker: str,
+    expiration: str,
+    calls_json: str,
+    puts_json: str,
+    stock_json: str,
+    user_question: str
+):
+    # Reconstruct inputs
+    calls_df = pd.read_json(calls_json)
+    puts_df = pd.read_json(puts_json)
+    stock_info = json.loads(stock_json)
+
     messages = construct_prompt(ticker, expiration, calls_df, puts_df, stock_info, user_question)
     response = ask_openai(messages)
-
     try:
         json_match = re.search(r'\{[\s\S]+\}', response)
         if not json_match:
