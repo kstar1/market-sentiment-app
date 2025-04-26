@@ -34,9 +34,15 @@ def render_task_output(insight: dict, show_raw=False):
         if key in ["task", "raw_response"]:
             continue  # hide by default unless toggled
 
-        if isinstance(val, str):
-            val = val.replace("$", r"\$")  # escape for markdown
-            st.markdown(f"**{key.replace('_', ' ').title()}:** {val}")
+        if isinstance(val, list):
+            if not val:
+                continue  # Skip if empty list (eg. no gamma clusters)
+            if all(isinstance(x, dict) for x in val):
+                for item in val:
+                    bullets = ", ".join([f"**{k}**: {v}" for k, v in item.items()])
+                    st.markdown(f"- {bullets}")
+            else:
+                st.markdown(f"- {val}")
 
         elif isinstance(val, list):
             if all(isinstance(x, dict) for x in val):
