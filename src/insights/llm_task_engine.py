@@ -11,20 +11,15 @@ from src.utils.helpers import sanitize_insights
 from streamlit import progress
 from src.data.option_loader import get_stock_history
 from src.insights.preprocessors import (
-    prepare_volatility_risk_premium,
-    prepare_unusual_options_flow,
-    prepare_trend_confirmation,
-    prepare_gamma_strike_clustering,
-    prepare_beta_adjusted_risk_profile,
-    prepare_synthetic_sentiment_index
-)
-from src.insights.preprocessors import (
     prepare_volatility_risk_premium_v2,
     prepare_unusual_flow_v2,
     prepare_trend_confirmation_v2,
     prepare_gamma_clustering_v2,
     prepare_beta_risk_profile_v2,
-    prepare_sentiment_index_v2
+    prepare_sentiment_index_v2,
+    prepare_variance_risk_premium_v2,         # <-- NEW
+    prepare_term_structure_slope_v2,           # <-- NEW
+    prepare_crash_risk_premium_v2              # <-- NEW
 )
 from src.utils.helpers import safe_json_dumps
 
@@ -38,6 +33,7 @@ def load_task_prompts():
 def run_insight_tasks(
     ticker: str,
     expiration: str,
+    expirations: list[str],
     calls_df: pd.DataFrame,
     puts_df: pd.DataFrame,
     stock_info: dict,
@@ -53,11 +49,14 @@ def run_insight_tasks(
     for i, (task_name, prompt) in enumerate(task_prompts.items()):
         task_preprocessors = {
             "Volatility Risk Premium Assessment": lambda: prepare_volatility_risk_premium_v2(calls_df, stock_history, expiration),
+            "Variance Risk Premium Analysis": lambda: prepare_variance_risk_premium_v2(calls_df, stock_history, expiration),
             "Unusual Options Flow Detection": lambda: prepare_unusual_flow_v2(calls_df, puts_df, expiration),
             "Price-Volume Trend Confirmation": lambda: prepare_trend_confirmation_v2(stock_history, puts_df, calls_df),
             "Gamma Strike Clustering": lambda: prepare_gamma_clustering_v2(calls_df, puts_df, stock_info["current_price"]),
             "Beta-Adjusted Risk Profile": lambda: prepare_beta_risk_profile_v2(stock_history, get_stock_history("^GSPC"), calls_df),
-            "Synthetic Sentiment Index": lambda: prepare_sentiment_index_v2(stock_history, calls_df, puts_df, get_stock_history("^GSPC"))
+            "Synthetic Sentiment Index": lambda: prepare_sentiment_index_v2(stock_history, calls_df, puts_df, get_stock_history("^GSPC")),
+            "Volatility Term Structure Analysis": lambda: prepare_term_structure_slope_v2(ticker, expirations),
+            "Crash Risk Premium Analysis": lambda: prepare_crash_risk_premium_v2(calls_df, puts_df, stock_info["current_price"])
         }
 
         prepared_data = task_preprocessors[task_name]()

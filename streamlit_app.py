@@ -6,6 +6,7 @@ import streamlit as st
 import pandas as pd
 import re
 import plotly.express as px
+import io
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.data.option_loader import get_expirations, get_option_chain, get_stock_info, get_stock_history
@@ -117,63 +118,84 @@ if ticker:
             (puts_df["openInterest"] >= filters_put["open_interest_min"])
         ]
 
-    # --- MULTI-INSIGHT STRATEGIST OUTPUT ---
     with st.expander("🧠 What Does Each GPT Insight Analyze?", expanded=False):
         st.markdown("""
-    ### 🧩 GPT-Based Analysis Dimensions
+        ### 🧩 GPT-Based Analysis Dimensions
 
-    The AI analyzes 6 distinct dimensions of market sentiment using options flow, price action, and volatility data:
+        The AI analyzes **9 distinct dimensions** of market sentiment using options flow, price action, and volatility data:
 
-    ---
+        ---
 
-    **1. Volatility Risk Premium Assessment**  
-    - **What it measures**: Whether current option prices overestimate or underestimate future volatility.
-    - **Data used**: 90-day historical realized volatility vs current ATM implied volatility.
-    - **Actionable insight**: Identify overpriced or cheap options for volatility trading strategies.
+        **1. Volatility Risk Premium Assessment**  
+        - **What it assesses**: Whether current option prices fairly reflect expected volatility.
+        - **Data used**: 90-day realized volatility vs current ATM implied volatility.
+        - **Insight**: Identify mispriced volatility opportunities.
 
-    ---
+        ---
 
-    **2. Unusual Options Flow Detection**  
-    - **What it detects**: Spikes in options volume, open interest, and implied volatility at specific strikes.
-    - **Data used**: Strike-level options chain analysis.
-    - **Actionable insight**: Spot directional bets, hedges, or volatility plays by large market participants.
+        **2. Variance Risk Premium Analysis**  
+        - **What it measures**: The gap between risk-neutral variance and realized variance.
+        - **Data used**: 30-day realized variance and ATM implied variance.
+        - **Insight**: Detect market overpricing or underpricing of volatility.
 
-    ---
+        ---
 
-    **3. Price-Volume Trend Confirmation**  
-    - **What it validates**: Whether technical price trends align with options trader positioning.
-    - **Data used**: EMA20/50/200 crossovers and put-call open interest ratios.
-    - **Actionable insight**: Confirm the strength of bullish or bearish moves, or detect divergence.
+        **3. Unusual Options Flow Detection**  
+        - **What it detects**: Spikes in volume, open interest, and IV suggesting large directional bets.
+        - **Data used**: Strike-level options chain anomalies.
+        - **Insight**: Uncover hidden trader sentiment shifts.
 
-    ---
+        ---
 
-    **4. Gamma Strike Clustering**  
-    - **What it maps**: Strikes with high open interest that could "pin" the stock price due to hedging dynamics.
-    - **Data used**: Strikes near current price with >10,000 contracts open interest.
-    - **Actionable insight**: Understand price zones where movement could slow down or reverse.
+        **4. Price-Volume Trend Confirmation**  
+        - **What it validates**: Whether price trends align with options trader positioning.
+        - **Data used**: EMA 20/50/200 crossovers and put-call open interest ratios.
+        - **Insight**: Confirm trend strength or detect divergence.
 
-    ---
+        ---
 
-    **5. Beta-Adjusted Risk Profile**  
-    - **What it profiles**: The overall riskiness of the stock relative to market volatility.
-    - **Data used**: Beta vs SPX, realized volatility, implied volatility.
-    - **Actionable insight**: Categorize stocks into low, medium, or high risk to inform portfolio construction.
+        **5. Gamma Strike Clustering**  
+        - **What it maps**: High open interest strikes causing potential price pinning.
+        - **Data used**: OI concentrations near current price.
+        - **Insight**: Predict price constriction zones or breakout points.
 
-    ---
+        ---
 
-    **6. Synthetic Sentiment Index**  
-    - **What it synthesizes**: A 0–100 sentiment score based on price momentum, options flow, volatility skew, and market correlation.
-    - **Data used**: Pre-aggregated sentiment drivers.
-    - **Actionable insight**: Quickly assess whether trader sentiment is bullish, neutral, or bearish.
+        **6. Beta-Adjusted Risk Profile**  
+        - **What it profiles**: Systemic risk posture relative to the market.
+        - **Data used**: Beta, realized volatility, implied volatility.
+        - **Insight**: Classify stocks into low, medium, or high portfolio risk.
 
-    ---
-    """)
+        ---
+
+        **7. Synthetic Sentiment Index**  
+        - **What it synthesizes**: Momentum, options flow, volatility skew, and market beta correlation.
+        - **Data used**: Multiple sentiment drivers combined.
+        - **Insight**: Quickly assess overall market tilt (bullish, neutral, bearish).
+
+        ---
+
+        **8. Volatility Term Structure Analysis**  
+        - **What it examines**: How implied volatility changes across different expirations.
+        - **Data used**: ATM IVs across expiration dates.
+        - **Insight**: Detect near-term fear or long-term complacency.
+
+        ---
+
+        **9. Crash Risk Premium Analysis**  
+        - **What it measures**: Implied volatility skew between deep OTM PUTs and CALLs.
+        - **Data used**: IV difference 20% OTM.
+        - **Insight**: Identify demand for crash protection pricing.
+
+        ---
+        """)
 
     st.markdown("## 📊 Strategic GPT Insights")
     if st.button("🔍 Generate Multi-Insight Summary"):
         multi_insights = run_insight_tasks(
             ticker=ticker,
             expiration=selected_expiration,
+            expirations=expirations,
             calls_df=filtered_calls,
             puts_df=filtered_puts,
             stock_info=stock_df,
@@ -184,12 +206,15 @@ if ticker:
 
     if "multi_insights" in st.session_state:
         INTRO_COPY = {
-            "Volatility Risk Premium Assessment": "Analyzes the gap between realized and implied volatility to detect mispriced options.",
-            "Unusual Options Flow Detection": "Detects aggressive options trades that suggest directional bets, hedging, or volatility positioning.",
-            "Price-Volume Trend Confirmation": "Evaluates whether price trends are supported by options positioning or showing divergence.",
-            "Gamma Strike Clustering": "Maps high open interest strikes near the stock price that could constrain or accelerate price movement.",
-            "Beta-Adjusted Risk Profile": "Summarizes the stock’s risk behavior versus the market based on beta and volatility metrics.",
-            "Synthetic Sentiment Index": "Synthesizes multiple indicators into a single sentiment score (bullish, neutral, bearish) to guide trading tilt."
+            "Volatility Risk Premium Assessment": "Assesses whether current option prices fairly reflect expected volatility, helping identify mispricing opportunities for volatility trading strategies.",
+            "Variance Risk Premium Analysis": "Measures the difference between risk-neutral (implied) variance and realized variance to detect whether the market is overpricing or underpricing volatility risk.",
+            "Unusual Options Flow Detection": "Identifies concentrated, unusual trading activity in specific strikes, providing early signals of potential directional bets, hedging, or event-driven speculation.",
+            "Price-Volume Trend Confirmation": "Evaluates if technical price momentum is reinforced or contradicted by options trader positioning, offering a second layer of trend validation or warning signals.",
+            "Gamma Strike Clustering": "Maps key strike price clusters with high open interest that could cause price pinning or sharp breakouts due to dealer hedging dynamics around gamma exposure.",
+            "Beta-Adjusted Risk Profile": "Analyzes the stock’s systemic risk posture relative to broader markets using beta, realized volatility, and implied volatility to classify portfolio riskiness.",
+            "Synthetic Sentiment Index": "Combines price momentum, options volume, volatility skew, and market beta correlation into a single tactical sentiment score (bullish, bearish, neutral).",
+            "Volatility Term Structure Analysis": "Examines how implied volatility varies across expiration dates to detect whether markets anticipate near-term stress or exhibit stable long-term expectations.",
+            "Crash Risk Premium Analysis": "Measures crash hedging demand by comparing implied volatility between deep OTM PUTs and CALLs, identifying if traders are paying extra for downside protection."
         }
 
         for insight in st.session_state.multi_insights:
@@ -222,6 +247,47 @@ if ticker:
 
                     if task == "Synthetic Sentiment Index":
                         render_sentiment_index_chart(insight["prepared_data"])
+
+    if "multi_insights" in st.session_state:
+        st.markdown("## 📥 Save Your Insights")
+
+        def compile_insights_to_markdown(multi_insights):
+            md = "# Market Sentiment Insights\n\n"
+            for insight in multi_insights:
+                task = insight.get("task", "Insight")
+                md += f"## {task}\n\n"
+                for key, value in insight.items():
+                    if key not in ["task", "prepared_data", "raw_response"]:
+                        md += f"**{key.replace('_', ' ').title()}:** {value}\n\n"
+            return md
+
+        def compile_insights_to_html(multi_insights):
+            html = "<html><body><h1>Market Sentiment Insights</h1>"
+            for insight in multi_insights:
+                task = insight.get("task", "Insight")
+                html += f"<h2>{task}</h2>"
+                for key, value in insight.items():
+                    if key not in ["task", "prepared_data", "raw_response"]:
+                        html += f"<p><strong>{key.replace('_', ' ').title()}:</strong> {value}</p>"
+            html += "</body></html>"
+            return html
+
+        markdown_content = compile_insights_to_markdown(st.session_state.multi_insights)
+        html_content = compile_insights_to_html(st.session_state.multi_insights)
+
+        st.download_button(
+            label="📄 Download as Markdown",
+            data=markdown_content,
+            file_name=f"{ticker}_insights.md",
+            mime="text/markdown"
+        )
+
+        st.download_button(
+            label="🌐 Download as HTML",
+            data=html_content,
+            file_name=f"{ticker}_insights.html",
+            mime="text/html"
+        )
 
     # --- TABS FOR DISPLAY ---
     tab1, tab2 = st.tabs(["▲ CALL Options", "▼ PUT Options"])

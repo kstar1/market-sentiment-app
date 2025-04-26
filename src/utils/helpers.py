@@ -31,31 +31,20 @@ def sanitize_insights(insights: list[str]) -> list[str]:
 
 def render_task_output(insight: dict, show_raw=False):
     for key, val in insight.items():
-        if key in ["task", "raw_response"]:
-            continue  # hide by default unless toggled
+        if key in ["task", "raw_response", "prepared_data"]:
+            continue  # <-- SKIP prepared_data now
 
         if isinstance(val, list):
             if not val:
-                continue  # Skip if empty list (eg. no gamma clusters)
-            if all(isinstance(x, dict) for x in val):
-                for item in val:
-                    bullets = ", ".join([f"**{k}**: {v}" for k, v in item.items()])
-                    st.markdown(f"- {bullets}")
-            else:
-                st.markdown(f"- {val}")
-
-        elif isinstance(val, list):
+                continue  # Skip if empty list
             if all(isinstance(x, dict) for x in val):
                 for i, row in enumerate(val, 1):
-                    formatted = ", ".join(f"**{k.title()}**: {str(v).replace('$', r'\$')}" for k, v in row.items())
+                    formatted = ", ".join(f"**{k.replace('_', ' ').title()}**: {str(v).replace('$', r'\$')}" for k, v in row.items())
                     st.markdown(f"{i}. {formatted}")
             else:
                 for i, item in enumerate(val, 1):
-                    if isinstance(item, (int, float)):
-                        st.markdown(f"- **Flagged Strike:** ${item}")
-                    else:
-                        clean = str(item).replace("$", r"\$")
-                        st.markdown(f"- {clean}")
+                    clean = str(item).replace("$", r"\$")
+                    st.markdown(f"- {clean}")
 
         elif isinstance(val, dict):
             st.markdown("**Details:**")
@@ -69,6 +58,10 @@ def render_task_output(insight: dict, show_raw=False):
     if show_raw and "raw_response" in insight:
         st.markdown("**Raw GPT JSON:**")
         st.code(insight["raw_response"], language="json")
+
+    if show_raw and "prepared_data" in insight:
+        st.markdown("**Numerical Prepared Data:**")
+        st.json(insight["prepared_data"])
 
 def safe_json_dumps(obj, **kwargs):
     return json.dumps(obj, default=lambda o: o.item() if hasattr(o, 'item') else str(o), **kwargs)

@@ -2,7 +2,9 @@
 
 import pandas as pd
 import numpy as np
+
 from scipy.stats import linregress
+from datetime import datetime
 
 # ========================
 # HELPER FUNCTIONS
@@ -330,4 +332,160 @@ def prepare_sentiment_index_v2(stock_history_df, calls_df, puts_df, spx_history_
         "vol_skew_contribution": vol_skew_contribution,
         "market_correlation_contribution": market_correlation_contribution,
         "interpretation": interpretation
+    }
+
+# --- New preprocessor for Deep Research ---
+
+def prepare_variance_risk_premium_v2(calls_df, stock_history_df, expiration_date):
+    """
+    Prepares inputs for Variance Risk Premium (VRP) analysis.
+    """
+
+    # Step 1: Calculate Realized Variance (past 30d)
+    returns = stock_history_df['Close'].pct_change().dropna()
+    if len(returns) < 30:
+        print("⚠️ Not enough data to calculate realized variance (need ~30 days)")
+        realized_variance = None
+    else:
+        realized_variance = returns.rolling(window=30).var().iloc[-1] * 252  # annualized
+
+    # Step 2: Calculate Risk-Neutral Variance (from ATM IV)
+    try:
+        atm_row = calls_df.iloc[(calls_df['strike'] - stock_history_df['Close'].iloc[-1]).abs().argsort()[:1]]
+        atm_iv = atm_row['impliedVolatility'].values[0]  # already in decimal (e.g., 0.30 for 30%)
+    except Exception as e:
+        print(f"⚠️ ATM IV fetch failed: {e}")
+        atm_iv = None
+
+    try:
+        expiry_date = pd.to_datetime(expiration_date)
+        today = datetime.now()
+        days_to_expiry = max((expiry_date - today).days, 1)
+    except Exception as e:
+        print(f"⚠️ Expiry parse failed: {e}")
+        days_to_expiry = 30  # fallback
+
+    if atm_iv is not None:
+        risk_neutral_variance = (atm_iv ** 2) * (days_to_expiry / 365)
+    else:
+        risk_neutral_variance = None
+
+    # Step 3: Variance Risk Premium
+    if realized_variance is not None and risk_neutral_variance is not None:
+        variance_risk_premium = risk_neutral_variance - realized_variance
+    else:
+        variance_risk_premium = None
+
+    return {
+        "realized_variance_30d": realized_variance,
+        "risk_neutral_variance": risk_neutral_variance,
+        "variance_risk_premium": variance_risk_premium,
+        "days_to_expiry": days_to_expiry,
+        "expiration_date": expiration_date
+    }
+
+# --- New preprocessor for Term Structure Analysis ---
+
+def prepare_term_structure_slope_v2(ticker: str, expirations: list[str]) -> dict:
+    """
+    Prepares inputs for Volatility Term Structure Slope analysis.
+    """
+
+    import yfinance as yf
+    ticker_obj = yf.Ticker(ticker)
+
+    term_structure_data = []
+
+    for expiry in expirations[:5]:  # Only first 5 expirations to avoid overload
+        try:
+            chain = ticker_obj.option_chain(expiry)
+            calls = chain.calls
+            if calls.empty:
+                continue
+
+            atm_row = calls.iloc[(calls['strike'] - ticker_obj.info['regularMarketPrice']).abs().argsort()[:1]]
+            atm_iv = atm_row['impliedVolatility'].values[0]
+
+            term_structure_data.append({
+                "expiration": expiry,
+                "atm_implied_vol": atm_iv
+            })
+        except Exception as e:
+            print(f"⚠️ Failed to fetch chain for {expiry}: {e}")
+            continue
+
+    # Sort by expiration
+    term_structure_data = sorted(term_structure_data, key=lambda x: x["expiration"])
+
+    # Calculate slope: (IV at later date - IV at near date) / time difference
+    if len(term_structure_data) >= 2:
+        first = term_structure_data[0]
+        last = term_structure_data[-1]
+
+        expiry_first = pd.to_datetime(first["expiration"])
+        expiry_last = pd.to_datetime(last["expiration"])
+
+        days_diff = (expiry_last - expiry_first).days
+        iv_diff = last["atm_implied_vol"] - first["atm_implied_vol"]
+
+        slope = iv_diff / days_diff if days_diff != 0 else None
+    else:
+        slope = None
+
+    return {
+        "term_structure_points": term_structure_data,
+        "term_structure_slope": slope
+    }
+
+# --- New preprocessor for Crash Risk Premium Analysis ---
+
+def prepare_crash_risk_premium_v2(calls_df, puts_df, stock_price: float) -> dict:
+    """
+    Prepares inputs for Crash Risk Premium (Skew) analysis.
+    """
+
+    if calls_df.empty or puts_df.empty:
+        print("⚠️ Calls or Puts dataframe is empty. Cannot compute crash risk premium.")
+        return {
+            "put_skew_percent": None,
+            "otm_put_iv": None,
+            "otm_call_iv": None,
+            "interpretation_flag": "data_missing"
+        }
+
+    # Define OTM region (20% OTM roughly)
+    otm_puts = puts_df[puts_df['strike'] <= stock_price * 0.8]
+    otm_calls = calls_df[calls_df['strike'] >= stock_price * 1.2]
+
+    if otm_puts.empty or otm_calls.empty:
+        print("⚠️ No sufficient OTM options to compute skew.")
+        return {
+            "put_skew_percent": None,
+            "otm_put_iv": None,
+            "otm_call_iv": None,
+            "interpretation_flag": "insufficient_data"
+        }
+
+    # Average IV of deep OTM puts and calls
+    otm_put_iv = otm_puts['impliedVolatility'].mean()
+    otm_call_iv = otm_calls['impliedVolatility'].mean()
+
+    # Compute skew
+    put_skew_percent = ((otm_put_iv - otm_call_iv) / otm_call_iv) * 100 if otm_call_iv != 0 else None
+
+    # Interpretation
+    if put_skew_percent is None:
+        interpretation = "insufficient_data"
+    elif put_skew_percent > 20:
+        interpretation = "high_crash_risk_priced"
+    elif put_skew_percent > 5:
+        interpretation = "moderate_crash_risk_priced"
+    else:
+        interpretation = "low_crash_risk_priced"
+
+    return {
+        "put_skew_percent": put_skew_percent,
+        "otm_put_iv": otm_put_iv,
+        "otm_call_iv": otm_call_iv,
+        "interpretation_flag": interpretation
     }
