@@ -74,3 +74,12 @@ def get_stock_info(ticker_symbol: str) -> dict:
         "website": info.get("website", "#"),
         "full_info": info  # pass full dict for optional expansion
     }
+
+def get_stock_history(ticker: str, period="90d", interval="1d") -> pd.DataFrame:
+    try:
+        ticker_obj = yf.Ticker(ticker)
+        hist = ticker_obj.history(period=period, interval=interval)
+        return hist.reset_index()
+    except Exception as e:
+        print(f"[Error] Unable to fetch stock history for {ticker}: {e}")
+        return pd.DataFrame()

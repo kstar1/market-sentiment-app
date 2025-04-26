@@ -1,5 +1,6 @@
 import re
 import streamlit as st
+import json
 
 def sanitize_insights(insights: list[str]) -> list[str]:
     cleaned = []
@@ -62,3 +63,6 @@ def render_task_output(insight: dict, show_raw=False):
     if show_raw and "raw_response" in insight:
         st.markdown("**Raw GPT JSON:**")
         st.code(insight["raw_response"], language="json")
+
+def safe_json_dumps(obj, **kwargs):
+    return json.dumps(obj, default=lambda o: o.item() if hasattr(o, 'item') else str(o), **kwargs)

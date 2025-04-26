@@ -49,7 +49,8 @@ def construct_prompt(
     calls_df: pd.DataFrame,
     puts_df: pd.DataFrame,
     stock_info: dict,
-    user_question: str
+    user_question: str,
+    stock_history: pd.DataFrame = None   # <-- NEW
 ) -> list:
     calls_summary = summarize_option_chain(calls_df, "CALL")
     puts_summary = summarize_option_chain(puts_df, "PUT")
@@ -61,6 +62,17 @@ def construct_prompt(
     - Beta: {stock_info.get('beta', 'N/A')}
     - Analyst Recommendation: {stock_info.get('recommendation', 'N/A')}
     """)
+
+    history_summary = ""
+    if stock_history is not None and not stock_history.empty:
+        history_summary = f"""
+        Stock History (Last {len(stock_history)} Days):
+        - Closing Price Range: ${stock_history['Close'].min():.2f} to ${stock_history['Close'].max():.2f}
+        - Avg Daily Volume: {stock_history['Volume'].mean():,.0f}
+        - Max Price Change: {((stock_history['Close'].pct_change().abs().max()) * 100):.2f}%
+        """
+
+        print(f"🧠 Debug: Injected stock history into prompt for {ticker} ({len(stock_history)} days)")
 
     schema_description = textwrap.dedent('''
     You have access to two DataFrames: calls_df and puts_df. Each contains columns:
@@ -103,13 +115,14 @@ def construct_prompt(
     return [
         {"role": "system", "content": "You are a professional options strategist generating daily summaries from live options chain data."},
         {"role": "user", "content": schema_description},
-        {"role": "user", "content": stock_summary},
+        {"role": "user", "content": stock_summary + "\n\n" + history_summary},
         {"role": "user", "content": f"Option chain for {ticker} expiring {expiration}:\n\n{calls_summary}\n{puts_summary}"},
         {"role": "user", "content": user_question.strip()},
     ]
 
 # === Step 3: Ask OpenAI ===
-def ask_openai(messages: list, model="gpt-4o", temperature=0.5, max_tokens=800):
+# temperature = 0.2 to be more deterministic
+def ask_openai(messages: list, model="gpt-4o", temperature=0.3, max_tokens=1500):
     response = client.chat.completions.create(
         model=model,
         messages=messages,
@@ -126,7 +139,8 @@ def get_llm_insight(
     calls_df: pd.DataFrame,
     puts_df: pd.DataFrame,
     stock_info: dict,
-    user_question: str
+    user_question: str,
+    stock_history: pd.DataFrame = None    # <-- NEW
 ):
     print("🚨 GPT API CALL — should only happen once per input")
 
@@ -134,8 +148,9 @@ def get_llm_insight(
     calls_key = calls_df.sort_index(axis=1).to_json()
     puts_key = puts_df.sort_index(axis=1).to_json()
     stock_key = json.dumps(stock_info, sort_keys=True)
+    history_key = stock_history.sort_index(axis=1).to_json() if stock_history is not None else "{}"
     
-    return _cached_llm_insight(ticker, expiration, calls_key, puts_key, stock_key, user_question)
+    return _cached_llm_insight(ticker, expiration, calls_key, puts_key, stock_key, history_key, user_question)
 
 
 @st.cache_data
@@ -145,14 +160,16 @@ def _cached_llm_insight(
     calls_json: str,
     puts_json: str,
     stock_json: str,
+    history_json: str,          # <-- NEW
     user_question: str
 ):
     # Reconstruct inputs
     calls_df = pd.read_json(calls_json)
     puts_df = pd.read_json(puts_json)
     stock_info = json.loads(stock_json)
+    stock_history = pd.read_json(history_json) if history_json != "{}" else None
 
-    messages = construct_prompt(ticker, expiration, calls_df, puts_df, stock_info, user_question)
+    messages = construct_prompt(ticker, expiration, calls_df, puts_df, stock_info, user_question, stock_history)
     response = ask_openai(messages)
     try:
         json_match = re.search(r'\{[\s\S]+\}', response)

@@ -1,12 +1,38 @@
 import json
 import hashlib
 import streamlit as st
+import pandas as pd
+import time
+import os
+
 from src.insights.llm_interpreter import ask_openai, construct_prompt
 from typing import List, Dict
 from src.utils.helpers import sanitize_insights
-import pandas as pd
-import time
 from streamlit import progress
+from src.data.option_loader import get_stock_history
+from src.insights.preprocessors import (
+    prepare_volatility_risk_premium,
+    prepare_unusual_options_flow,
+    prepare_trend_confirmation,
+    prepare_gamma_strike_clustering,
+    prepare_beta_adjusted_risk_profile,
+    prepare_synthetic_sentiment_index
+)
+from src.insights.preprocessors import (
+    prepare_volatility_risk_premium_v2,
+    prepare_unusual_flow_v2,
+    prepare_trend_confirmation_v2,
+    prepare_gamma_clustering_v2,
+    prepare_beta_risk_profile_v2,
+    prepare_sentiment_index_v2
+)
+from src.utils.helpers import safe_json_dumps
+
+def load_task_prompts():
+    file_path = os.path.join(os.path.dirname(__file__), "..", "config", "task_prompts.json")
+    with open(file_path, "r") as f:
+        task_prompts = json.load(f)
+    return task_prompts
 
 @st.cache_data(show_spinner="🔍 Generating multi-insight summary...")
 def run_insight_tasks(
@@ -14,69 +40,33 @@ def run_insight_tasks(
     expiration: str,
     calls_df: pd.DataFrame,
     puts_df: pd.DataFrame,
-    stock_info: dict
+    stock_info: dict,
+    stock_history: pd.DataFrame = None   # <-- add this new param
 ) -> List[Dict]:
 
-    task_prompts = {
-        "Sentiment Pulse": (
-            "Please respond with only valid JSON in this format:\n"
-            "{ 'sentiment': '...', 'rationale': '...', 'key_levels': [...], 'takeaway': '...' }\n"
-            "Using the volume, open interest, and implied volatility of this options chain, assess overall trader sentiment. "
-            "Is it bullish, bearish, or neutral? Provide reasoning based on where traders are placing bets (e.g., OTM calls vs puts, ATM volumes). "
-            "Mention any deviations from analyst consensus."
-        ),
-
-        "Support/Resistance": (
-            "Please respond with only valid JSON in this format:\n"
-            "{ 'support_levels': [...], 'resistance_levels': [...], 'rationale': '...', 'takeaway': '...' }\n"
-            "Based on open interest patterns, identify likely support and resistance levels. "
-            "Focus on strikes with significantly elevated OI relative to surrounding levels."
-        ),
-
-        "IV Skew Analysis": (
-            "Please respond with only valid JSON in this format:\n"
-            "{ 'skew_type': '...', 'key_observations': '...', 'iv_range': '...', 'takeaway': '...' }\n"
-            "Analyze the implied volatility skew across strikes. "
-            "Comment on whether skew favors downside or upside protection, and what this suggests about market expectations."
-        ),
-
-        "Unusual Flow": (
-            "Please respond with only valid JSON in this format:\n"
-            "{ 'flagged_strikes': [...], 'observation': '...', 'takeaway': '...' }\n"
-            "Highlight any unusual volume or open interest patterns that suggest large trades or directional bets. "
-            "Look for volume spikes at unexpected strikes or new OI builds."
-        ),
-
-        "Risk Factors": (
-            "Please respond with only valid JSON in this format:\n"
-            "{ 'risks': [...], 'implications': '...', 'takeaway': '...' }\n"
-            "What are the key risks implied by this options chain (e.g., time decay, volatility compression, earnings exposure)? "
-            "Mention where positions are most vulnerable."
-        ),
-
-        "Strategist Summary": (
-            "Please respond with only valid JSON in this format:\n"
-            "{ 'summary': '...', 'confidence_level': '...', 'recommended_read': '...' }\n"
-            "Summarize this options chain as if writing a strategist report. "
-            "Integrate positioning, skew, and key strike zones. "
-            "Conclude with a confident takeaway a client could act on."
-        )
-    }
+    task_prompts = load_task_prompts()
 
     results = []
     progress_bar = st.progress(0)
     step = 1 / len(task_prompts)
 
     for i, (task_name, prompt) in enumerate(task_prompts.items()):
-        messages = construct_prompt(
-            ticker=ticker,
-            expiration=expiration,
-            calls_df=calls_df,
-            puts_df=puts_df,
-            stock_info=stock_info,
-            user_question=prompt
-        )
+        task_preprocessors = {
+            "Volatility Risk Premium Assessment": lambda: prepare_volatility_risk_premium_v2(calls_df, stock_history, expiration),
+            "Unusual Options Flow Detection": lambda: prepare_unusual_flow_v2(calls_df, puts_df, expiration),
+            "Price-Volume Trend Confirmation": lambda: prepare_trend_confirmation_v2(stock_history, puts_df, calls_df),
+            "Gamma Strike Clustering": lambda: prepare_gamma_clustering_v2(calls_df, puts_df, stock_info["current_price"]),
+            "Beta-Adjusted Risk Profile": lambda: prepare_beta_risk_profile_v2(stock_history, get_stock_history("^GSPC"), calls_df),
+            "Synthetic Sentiment Index": lambda: prepare_sentiment_index_v2(stock_history, calls_df, puts_df, get_stock_history("^GSPC"))
+        }
 
+        prepared_data = task_preprocessors[task_name]()
+
+        messages = [
+            {"role": "system", "content": "You are a senior financial strategist tasked with analyzing market structure, options flow, and stock price action."},
+            {"role": "user", "content": f"Here is the pre-calculated data you must use for your analysis:\n\n{json.dumps(prepared_data, indent=2, default=lambda o: o.item() if hasattr(o, 'item') else str(o))}"},
+            {"role": "user", "content": f"Task Instructions:\n\n{prompt}\n\nRespond only with valid JSON as requested."}
+        ]
         response = ask_openai(messages)
 
         try:
@@ -94,9 +84,11 @@ def run_insight_tasks(
             }
 
         parsed["task"] = task_name
+        parsed["prepared_data"] = prepared_data  # 👈 Save the numerics separately
         results.append(parsed)
         progress_bar.progress(min((i + 1) * step, 1.0))
 
     progress_bar.empty()
+    print(f"[{task_name}] Input sent to GPT:\n{safe_json_dumps(prepared_data, indent=2)}")
     return results
 
